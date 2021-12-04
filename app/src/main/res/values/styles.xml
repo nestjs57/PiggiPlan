@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/blue_light</item>
+        <item name="android:fontFamily">@font/db_heavent_now_regular</item>
+    </style>
+
+    <style name="DialogNoTitle">
+        <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
+        <item name="android:windowBackground">@color/black_transparent</item>
+    </style>
+</resources>
