@@ -20,6 +20,17 @@
         android:name="com.arnoract.piggiplan.ui.home.HomeFragment"
         android:label="HomeFragment">
 
+        <action
+            android:id="@+id/action_homeFragment_to_CreatePartyFragment"
+            app:destination="@id/createPartyFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPartyFragment"
+        android:name="com.arnoract.piggiplan.ui.create.CreatePartyFragment"
+        android:label="CreateFragment">
+
     </fragment>
 
 

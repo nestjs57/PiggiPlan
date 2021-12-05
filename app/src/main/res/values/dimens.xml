@@ -7,6 +7,7 @@
 	<dimen name="corners_radius_8dp">8dp</dimen>
 	<dimen name="round_corners_radius">100dp</dimen>
 	<dimen name="elevation">2dp</dimen>
+	<dimen name="elevation_toolbar">8dp</dimen>
 
 	<!-- spacing between element both horizontal and vertical -->
 	<dimen name="space_smaller">2dp</dimen>

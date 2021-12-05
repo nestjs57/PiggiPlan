@@ -35,6 +35,9 @@ android {
     buildFeatures {
         dataBinding true
     }
+    viewBinding {
+        enabled = true
+    }
     packagingOptions {
         exclude "**/attach_hotspot_windows.dll"
         exclude "META-INF/licenses/**"
