@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/launchScreenFragment">
+
+    <fragment
+        android:id="@+id/launchScreenFragment"
+        android:name="com.arnoract.piggiplan.ui.login.LaunchScreenFragment"
+        android:label="LaunchScreenFragment">
+
+        <action
+            android:id="@+id/action_launchScreenFragment_to_HomeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.arnoract.piggiplan.ui.home.HomeFragment"
+        android:label="HomeFragment">
+
+    </fragment>
+
 
 </navigation>
