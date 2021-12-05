@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PiggiPlan</string>
+    <string name="app_name_upper_case_with_space">PIGGI PLAN</string>
+    <string name="app_name_description">เจอกันคนละครึ่งทาง</string>
+    <string name="home_empty_state_title_label">ไม่มีรายการปาร์ตี้</string>
+    <string name="home_empty_state_description_label">สร้างรายการปาร์ตี้ของคุณได้เลย</string>
+    <string name="home_empty_state_create_party_action_label">สร้างปาร์ตี้</string>
 </resources>
