@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<dimen name="divider_height">1dp</dimen>
+	<dimen name="divider_height">0.5dp</dimen>
 	<dimen name="action_toolbar_height">56dp</dimen>
 	<dimen name="border_width">1dp</dimen>
 	<dimen name="corners_radius">4dp</dimen>
