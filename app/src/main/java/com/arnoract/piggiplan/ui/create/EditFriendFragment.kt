@@ -5,18 +5,15 @@ import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
-import com.arnoract.piggiplan.databinding.FragmentCreatePartyBinding
+import com.arnoract.piggiplan.databinding.FragmentEditFriendBinding
 
-class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party) {
+class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
 
-    private val binding by viewBinding(FragmentCreatePartyBinding::bind)
+    private val binding by viewBinding(FragmentEditFriendBinding::bind)
 
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
-        }
-        binding.editFriendImageButton.setDebounceOnClickListener {
-            findNavController().navigate(R.id.action_createPartyFragment_to_EditFriendFragment)
         }
     }
 }

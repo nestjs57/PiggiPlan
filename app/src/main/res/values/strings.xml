@@ -10,4 +10,9 @@
     <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
     <string name="create_party_restaurant_title_label">ร้านอาหาร</string>
     <string name="create_party_search_restaurant_nearby_friend_action_label">ค้นหาร้านที่ใกล้ทุกคนที่สุด</string>
+
+    <string name="create_party_edit_friend_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
+    <string name="create_party_edit_friend_name_hint">กรอกชื่อ…</string>
+    <string name="create_party_edit_friend_action_select_address_label"><u>เลือกที่อยู่</u></string>
+    <string name="create_party_edit_friend_action_save_label">บันทึก</string>
 </resources>
