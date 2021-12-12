@@ -18,5 +18,8 @@
 
     <string name="create_party_select_address_title_label">ค้นหาสถานที่…</string>
     <string name="create_party_select_address_action_save_label">เลือกที่อยู่นี้</string>
+    <string name="create_party_select_address_blank_address_name_label">ไม่มีชื่อที่อยู่</string>
+    <string name="create_party_select_address_find_location_not_found_error">ไม่พบที่อยู่ตำแหน่งที่ค้นหา</string>
+
 
 </resources>

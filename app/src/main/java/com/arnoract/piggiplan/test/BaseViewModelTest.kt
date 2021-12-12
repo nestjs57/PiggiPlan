@@ -15,7 +15,7 @@ abstract class BaseViewModelTest {
 
 	@Before
 	fun setUp() {
-		mockkStatic("com.arnoract.piggiplan.test.util.UseCaseUtilsKt")
+		mockkStatic("com.arnoract.piggiplan.test.utils.UseCaseUtilsKt")
 		setUpTest()
 	}
 
