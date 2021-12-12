@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <fragment
-            android:id="@+id/map"
+            android:id="@+id/mapLayout"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -28,18 +28,25 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/chooseLocationTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_large"
             android:background="@drawable/bg_corner_3dp_radius_24dp"
+            android:drawablePadding="@dimen/space_normal"
             android:elevation="@dimen/elevation"
+            android:ellipsize="end"
             android:gravity="start|center"
+            android:maxLines="1"
             android:padding="@dimen/space_normal_12dp"
             android:text="@string/create_party_select_address_title_label"
             android:textSize="@dimen/text_normal"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/quantum_ic_search_grey600_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/createPartyButton"
