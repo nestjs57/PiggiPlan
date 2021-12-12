@@ -42,6 +42,17 @@
         android:name="com.arnoract.piggiplan.ui.create.EditFriendFragment"
         android:label="EditFriendFragment">
 
+        <action
+            android:id="@+id/action_editFriendFragment_to_selectAddressFragment"
+            app:destination="@id/selectAddressFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectAddressFragment"
+        android:name="com.arnoract.piggiplan.ui.create.SelectAddressFragment"
+        android:label="SelectAddressFragment">
+
     </fragment>
 
 

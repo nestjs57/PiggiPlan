@@ -15,5 +15,8 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
         }
+        binding.selectAddressTextView.setDebounceOnClickListener {
+            findNavController().navigate(R.id.action_editFriendFragment_to_selectAddressFragment)
+        }
     }
 }
