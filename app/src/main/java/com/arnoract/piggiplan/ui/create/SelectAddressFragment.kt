@@ -9,7 +9,6 @@ import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
-import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentSelectAddressBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -27,6 +26,7 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
     private lateinit var mMap: GoogleMap
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
+        mViewModel.initialData()
         binding.chooseLocationTextView.visibility = View.VISIBLE
     }
     private var resultLauncher =
@@ -35,11 +35,11 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
                 val data: Intent? = result.data
                 if (data != null) {
                     val place = Autocomplete.getPlaceFromIntent(data)
-                    mViewModel.setLatLng(place.latLng)
-                    mViewModel.setAddressName(
-                        place.address
-                            ?: getString(R.string.create_party_select_address_blank_address_name_label)
-                    )
+                    val id = place.id ?: ""
+                    val addressName = place.address
+                        ?: getString(R.string.create_party_select_address_blank_address_name_label)
+                    val latLng = place.latLng
+                    mViewModel.setAddressSelected(id, addressName, latLng)
                 }
             }
         }
@@ -53,6 +53,10 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
         binding.chooseLocationTextView.setDebounceOnClickListener {
             openSearchLocation()
         }
+        binding.saveAddressButton.setDebounceOnClickListener {
+            mViewModel.saveAddress()
+            findNavController().popBackStack()
+        }
     }
 
     override fun setUpMap() {
@@ -62,17 +66,15 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
     }
 
     override fun observeViewModel() {
-        mViewModel.latLng.observe(viewLifecycleOwner) {
+        mViewModel.latLngSelected.observe(viewLifecycleOwner) {
             it ?: return@observe
             clearMarker()
             addMarker(it)
             moveCamera(it)
         }
-        mViewModel.addressName.observe(viewLifecycleOwner) {
+        mViewModel.addressNameSelected.observe(viewLifecycleOwner) {
+            it ?: return@observe
             binding.chooseLocationTextView.text = it
-        }
-        mViewModel.invalidLatLngEvent.observe(viewLifecycleOwner) {
-            requireContext().toast(getString(R.string.create_party_select_address_find_location_not_found_error))
         }
     }
 

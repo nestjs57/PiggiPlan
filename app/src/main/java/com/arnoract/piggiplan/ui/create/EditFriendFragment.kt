@@ -23,7 +23,26 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
             findNavController().popBackStack()
         }
         binding.selectAddressTextView.setDebounceOnClickListener {
-            findNavController().navigate(R.id.action_editFriendFragment_to_selectAddressFragment)
+            navigateToSelectAddressFragment()
         }
+        binding.addressNameTextview.setDebounceOnClickListener {
+            navigateToSelectAddressFragment()
+        }
+    }
+
+    override fun observeViewModel() {
+        mViewModel.name.observe(viewLifecycleOwner) {
+            it ?: return@observe
+            binding.nameEditText.setText(it)
+        }
+        mViewModel.addressName.observe(viewLifecycleOwner) {
+            it ?: return@observe
+            binding.addressViewFlipper.displayedChild = if (it.isBlank()) 0 else 1
+            binding.addressNameTextview.text = it
+        }
+    }
+
+    fun navigateToSelectAddressFragment() {
+        findNavController().navigate(R.id.action_editFriendFragment_to_selectAddressFragment)
     }
 }

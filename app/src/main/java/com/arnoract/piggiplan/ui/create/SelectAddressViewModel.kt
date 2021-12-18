@@ -6,29 +6,38 @@ import androidx.lifecycle.ViewModel
 import com.google.android.gms.maps.model.LatLng
 import com.hadilq.liveevent.LiveEvent
 
-class SelectAddressViewModel : ViewModel() {
+class SelectAddressViewModel(
+    private val selectAddressViewModelDelegateImpl: SelectAddressViewModelDelegateImpl
+) : ViewModel(), SelectAddressViewModelDelegate by selectAddressViewModelDelegateImpl {
 
-    private val _latLng = MutableLiveData<LatLng?>()
-    val latLng: LiveData<LatLng?>
-        get() = _latLng
+    private var _addressIdSelected: String? = null
+
+    private val _addressNameSelected = MutableLiveData<String?>()
+    val addressNameSelected: LiveData<String?>
+        get() = _addressNameSelected
+
+    private val _latLngSelected = MutableLiveData<LatLng?>()
+    val latLngSelected: LiveData<LatLng?>
+        get() = _latLngSelected
 
     private val _invalidLatLngEvent = LiveEvent<Unit>()
     val invalidLatLngEvent: LiveData<Unit>
         get() = _invalidLatLngEvent
 
-    private val _addressName = MutableLiveData<String>()
-    val addressName: LiveData<String>
-        get() = _addressName
-
-    fun setLatLng(latLng: LatLng?) {
-        if (latLng == null) {
-            _invalidLatLngEvent.value = Unit
-        } else {
-            _latLng.value = latLng
-        }
+    fun initialData() {
+        _addressNameSelected.value = getAddressName()
+        _latLngSelected.value = getLatLng()
     }
 
-    fun setAddressName(addressName: String) {
-        _addressName.value = addressName
+    fun setAddressSelected(id: String, addressName: String, latLng: LatLng?) {
+        _addressIdSelected = id
+        _addressNameSelected.value = addressName
+        _latLngSelected.value = latLng
+    }
+
+    fun saveAddress() {
+        setAddressId(_addressIdSelected)
+        setAddressName(_addressNameSelected.value)
+        setLatLng(_latLngSelected.value)
     }
 }

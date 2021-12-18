@@ -49,7 +49,7 @@
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/createPartyButton"
+            android:id="@+id/saveAddressButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_large"

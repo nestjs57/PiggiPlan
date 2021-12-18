@@ -3,25 +3,46 @@ package com.arnoract.piggiplan.ui.custom
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.FrameLayout
 import com.arnoract.piggiplan.databinding.ViewItemFriendAddressBinding
 import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
+import com.arnoract.piggiplan.view.AbstractCustomView
 
 class FriendAddressItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : AbstractCustomView<UiFriendAddress>(context, attrs, defStyleAttr) {
 
-    private val binding = ViewItemFriendAddressBinding.inflate(LayoutInflater.from(context))
+    private var mListener: OnFriendAddressItemListener? = null
+    private lateinit var binding: ViewItemFriendAddressBinding
 
-    init {
+    override fun inflateLayout(inflater: LayoutInflater) {
+        binding = ViewItemFriendAddressBinding.inflate(LayoutInflater.from(context))
         addView(binding.root)
     }
 
-    fun fillData(data: UiFriendAddress) {
-        this.tag = data.id
-        binding.nameTextView.text = data.name
-        binding.addressTextView.text = data.addressName
+    override fun setUpView() {
+        binding.friendAddressItemLayout.setOnClickListener {
+            data?.let {
+                mListener?.onFriendAddressClick(it.id)
+            }
+        }
+    }
+
+    override fun fillDataNonNull(d: UiFriendAddress) {
+        this.tag = data?.id
+        binding.nameTextView.text = data?.name
+        binding.addressTextView.text = data?.addressName
+    }
+
+
+    fun setOnFriendAddressItemListener(listener: OnFriendAddressItemListener) {
+        this.mListener = listener
+    }
+
+    interface OnFriendAddressItemListener {
+        fun onFriendAddressClick(
+            id: Long
+        )
     }
 }
