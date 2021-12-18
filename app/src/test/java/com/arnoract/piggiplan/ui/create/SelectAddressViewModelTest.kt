@@ -5,44 +5,37 @@ import com.arnoract.piggiplan.test.BaseViewModelTest
 import com.google.android.gms.maps.model.LatLng
 import com.jraska.livedata.TestObserver
 import com.jraska.livedata.test
+import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class SelectAddressViewModelTest : BaseViewModelTest() {
 
-    private lateinit var latLngObserver: TestObserver<LatLng?>
-    private lateinit var invalidLatLngEventObserver: TestObserver<Unit>
-    private lateinit var addressNameObserver: TestObserver<String>
+    private lateinit var latLngSelectedObserver: TestObserver<LatLng?>
+    private lateinit var addressNameSelectedObserver: TestObserver<String?>
     private lateinit var underTest: SelectAddressViewModel
 
     override fun setUpTest() {
-        underTest = SelectAddressViewModel()
-        latLngObserver = underTest.latLng.test()
-        addressNameObserver = underTest.addressName.test()
-        invalidLatLngEventObserver = underTest.invalidLatLngEvent.test()
+        underTest = SelectAddressViewModel(mockk(relaxUnitFun = true))
+        latLngSelectedObserver = underTest.latLngSelected.test()
+        addressNameSelectedObserver = underTest.addressNameSelected.test()
     }
 
     @Test
-    fun testSetLayLng() {
-        underTest.setLatLng(LatLng(110.0, 100.0))
+    fun testSetAddressSelected() {
+        underTest.setAddressSelected("id", "name", LatLng(100.0, 110.0))
 
-        latLngObserver.assertValue(LatLng(100.0, 100.0))
-        invalidLatLngEventObserver.assertNoValue()
+        addressNameSelectedObserver.assertValue("name")
+        latLngSelectedObserver.assertValue(LatLng(100.0, 110.0))
     }
 
-    @Test
-    fun testSetLatLng_isNull() {
-        underTest.setLatLng(null)
-
-        latLngObserver.assertNoValue()
-        invalidLatLngEventObserver.assertHasValue()
-    }
 
     @Test
-    fun testSetAddressName() {
-        underTest.setAddressName("name")
+    fun testSetAddressName_LatLng_Is_Null() {
+        underTest.setAddressSelected("id", "name", null)
 
-        addressNameObserver.assertValue("name")
+        addressNameSelectedObserver.assertValue("name")
+        latLngSelectedObserver.assertValue(null)
     }
 }
