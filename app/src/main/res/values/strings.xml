@@ -16,11 +16,16 @@
     <string name="create_party_edit_friend_action_select_address_label"><u>เลือกที่อยู่</u></string>
     <string name="create_party_edit_friend_action_save_label">บันทึก</string>
     <string name="create_party_edit_friend_blank_name_error">กรุณากรอกชื่อ</string>
+    <string name="create_party_edit_dialog_confirm_title">ลบข้อมูลชื่อที่อยู่</string>
+    <string name="create_party_edit_dialog_confirm_description">ต้องการลบรายการชื่อที่อยู่ของเพื่อนคนนี้หรือไม่ ?</string>
 
     <string name="create_party_select_address_title_label">ค้นหาสถานที่…</string>
     <string name="create_party_select_address_action_save_label">เลือกที่อยู่นี้</string>
     <string name="create_party_select_address_blank_address_name_label">ไม่มีชื่อที่อยู่</string>
     <string name="create_party_select_address_find_location_not_found_error">ไม่พบที่อยู่ตำแหน่งที่ค้นหา</string>
 
+    <string name="action_cancel">ยกเลิก</string>
+    <string name="action_back">ย้อนกลับ</string>
+    <string name="action_confirm">ตกลง</string>
 
 </resources>

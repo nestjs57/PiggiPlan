@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.ui.create
 
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.arnoract.piggiplan.R
@@ -8,6 +9,7 @@ import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
 import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentEditFriendBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -32,6 +34,12 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         binding.saveFriendButton.setDebounceOnClickListener {
             val name = binding.nameEditText.text.toString().trim()
             mViewModel.save(name)
+        }
+        binding.toolbarLayout.drawableEndImageButton.apply {
+            setImageResource(R.drawable.ic_bin)
+        }
+        binding.toolbarLayout.drawableEndImageButton.setOnClickListener {
+            mViewModel.showConfirmDelete()
         }
     }
 
@@ -58,6 +66,24 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         }
         mViewModel.saveFailExceptionEvent.observe(viewLifecycleOwner) {
             requireContext().toast(it)
+        }
+        mViewModel.isShowDelete.observe(viewLifecycleOwner) {
+            binding.toolbarLayout.drawableEndImageButton.visibility =
+                if (it) View.VISIBLE else View.GONE
+        }
+        mViewModel.showConfirmDeleteEvent.observe(viewLifecycleOwner) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(resources.getString(R.string.create_party_edit_dialog_confirm_description))
+                .setNegativeButton(resources.getString(R.string.action_cancel)) { _, _ ->
+                    //Do Nothing
+                }
+                .setPositiveButton(resources.getString(R.string.action_confirm)) { _, _ ->
+                    mViewModel.delete()
+                }
+                .show()
+        }
+        mViewModel.deleteSuccessEvent.observe(viewLifecycleOwner) {
+            findNavController().popBackStack()
         }
     }
 
