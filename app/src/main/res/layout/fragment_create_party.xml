@@ -4,107 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.create.CreatePartyFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include
             android:id="@+id/toolbarLayout"
             layout="@layout/toolbar_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/nameTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_large"
-            android:layout_marginTop="@dimen/space_large"
-            android:text="@string/create_party_name_title_label"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_headline"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
-
-        <ImageButton
-            android:id="@+id/editFriendImageButton"
-            android:layout_width="30dp"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/space_large"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:src="@drawable/ic_plus"
-            app:layout_constraintBottom_toBottomOf="@+id/nameTitleTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/nameTitleTextView" />
+            android:layout_weight="1">
 
-        <LinearLayout
-            android:id="@+id/friendAddressView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_large"
-            android:orientation="vertical"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTitleTextView"
-            tools:background="@color/gray300"
-            tools:layout_height="100dp"
-            tools:visibility="visible" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/restaurantTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_large"
-            android:layout_marginTop="@dimen/space_normal"
-            android:text="@string/create_party_restaurant_title_label"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_headline"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friendAddressView" />
+                <TextView
+                    android:id="@+id/nameTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_large"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:text="@string/create_party_name_title_label"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_headline"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/space_large"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:src="@drawable/ic_plus"
-            app:layout_constraintBottom_toBottomOf="@+id/restaurantTitleTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/restaurantTitleTextView" />
+                <ImageButton
+                    android:id="@+id/editFriendImageButton"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/nameTitleTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/nameTitleTextView" />
 
-        <TextView
-            android:id="@+id/restaurantNameTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_large"
-            android:layout_marginTop="@dimen/space_normal"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/text_headline"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/restaurantTitleTextView"
-            tools:text="ตี๋น้อย ทุกสาขา"
-            tools:visibility="visible" />
+                <LinearLayout
+                    android:id="@+id/friendAddressView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_large"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTitleTextView"
+                    tools:background="@color/gray300"
+                    tools:layout_height="100dp"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/restaurantTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_large"
+                    android:layout_marginTop="@dimen/space_normal"
+                    android:text="@string/create_party_restaurant_title_label"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_headline"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/friendAddressView" />
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@+id/restaurantTitleTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/restaurantTitleTextView" />
+
+                <TextView
+                    android:id="@+id/restaurantNameTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_large"
+                    android:layout_marginTop="@dimen/space_normal"
+                    android:textColor="@color/purple_500"
+                    android:textSize="@dimen/text_headline"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantTitleTextView"
+                    tools:text="ตี๋น้อย ทุกสาขา"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
         <Button
             android:id="@+id/searchRestaurantButton"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_margin="@dimen/space_large"
             android:text="@string/create_party_search_restaurant_nearby_friend_action_label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </LinearLayout>
 </layout>

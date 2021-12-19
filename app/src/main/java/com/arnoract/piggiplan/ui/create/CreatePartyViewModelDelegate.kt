@@ -6,6 +6,10 @@ import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 
 interface CreatePartyViewModelDelegate {
     val friends: LiveData<List<UiFriendAddress>>
+    fun setFriends(friends: List<UiFriendAddress>)
+    fun addFriend(data: UiFriendAddress)
+    fun editFriend(id: Long, data: UiFriendAddress)
+    fun getFriendById(id: Long): UiFriendAddress?
 }
 
 class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
@@ -14,34 +18,32 @@ class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
     override val friends: LiveData<List<UiFriendAddress>>
         get() = _friends
 
-    fun addFriendAddress(data: UiFriendAddress) {
-        val id = _friends.value?.size ?: 0
-        _friends.value?.plus(
-            UiFriendAddress(
-                id = id.toLong(),
-                name = data.name,
-                addressId = data.addressId,
-                addressName = data.addressName,
-                latLng = data.latLng
-            )
+    override fun setFriends(friends: List<UiFriendAddress>) {
+        _friends.value = friends
+    }
+
+    init {
+        _friends.value = listOf()
+    }
+
+    override fun addFriend(data: UiFriendAddress) {
+        val id = _friends.value?.size?.plus(1)?.toLong() ?: 0L
+        _friends.value = _friends.value?.plus(
+            data.copy(id = id)
         )
     }
 
-    fun editFriendAddress(id: Long, data: UiFriendAddress) {
-        _friends.value?.map {
+    override fun editFriend(id: Long, data: UiFriendAddress) {
+        _friends.value = _friends.value?.map {
             if (it.id == id) {
-                it.copy(
-                    id = data.id,
-                    name = data.name,
-                    addressName = data.addressName
-                )
+                data.copy(id = id)
             } else {
                 it
             }
         }
     }
 
-    fun getFriendAddressById(id: Long): UiFriendAddress? {
+    override fun getFriendById(id: Long): UiFriendAddress? {
         return _friends.value?.firstOrNull {
             it.id == id
         }

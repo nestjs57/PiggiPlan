@@ -9,6 +9,7 @@ interface SelectAddressViewModelDelegate {
     val addressName: LiveData<String?>
     val latLng: LiveData<LatLng?>
     fun setAddressId(id: String?)
+    fun getAddressId(): String?
     fun setAddressName(addressName: String?)
     fun getAddressName(): String?
     fun setLatLng(latLng: LatLng?)
@@ -33,6 +34,10 @@ class SelectAddressViewModelDelegateImpl : SelectAddressViewModelDelegate {
         _addressId.value = id
     }
 
+    override fun getAddressId(): String? {
+        return _addressId.value
+    }
+
     override fun setAddressName(addressName: String?) {
         _addressName.value = addressName
     }
@@ -48,4 +53,5 @@ class SelectAddressViewModelDelegateImpl : SelectAddressViewModelDelegate {
     override fun getLatLng(): LatLng? {
         return _latLng.value
     }
+
 }

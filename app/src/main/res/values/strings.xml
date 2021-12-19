@@ -15,6 +15,7 @@
     <string name="create_party_edit_friend_name_hint">กรอกชื่อ…</string>
     <string name="create_party_edit_friend_action_select_address_label"><u>เลือกที่อยู่</u></string>
     <string name="create_party_edit_friend_action_save_label">บันทึก</string>
+    <string name="create_party_edit_friend_blank_name_error">กรุณากรอกชื่อ</string>
 
     <string name="create_party_select_address_title_label">ค้นหาสถานที่…</string>
     <string name="create_party_select_address_action_save_label">เลือกที่อยู่นี้</string>
