@@ -20,10 +20,6 @@ class SelectAddressViewModel(
     val latLngSelected: LiveData<LatLng?>
         get() = _latLngSelected
 
-    private val _invalidLatLngEvent = LiveEvent<Unit>()
-    val invalidLatLngEvent: LiveData<Unit>
-        get() = _invalidLatLngEvent
-
     fun initialData() {
         _addressNameSelected.value = getAddressName()
         _latLngSelected.value = getLatLng()

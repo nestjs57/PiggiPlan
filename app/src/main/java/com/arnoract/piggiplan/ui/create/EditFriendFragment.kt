@@ -28,6 +28,10 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         binding.addressNameTextview.setDebounceOnClickListener {
             navigateToSelectAddressFragment()
         }
+        binding.saveFriendButton.setDebounceOnClickListener {
+            val name = binding.nameEditText.text.toString().trim()
+            mViewModel.save(name)
+        }
     }
 
     override fun observeViewModel() {
@@ -40,9 +44,16 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
             binding.addressViewFlipper.displayedChild = if (it.isBlank()) 0 else 1
             binding.addressNameTextview.text = it
         }
+        mViewModel.saveFriendSuccessEvent.observe(viewLifecycleOwner) {
+            findNavController().popBackStack()
+        }
+        mViewModel.isBlankNameEvent.observe(viewLifecycleOwner) {
+            binding.textInputLayout.error =
+                getString(R.string.create_party_edit_friend_blank_name_error)
+        }
     }
 
-    fun navigateToSelectAddressFragment() {
+    private fun navigateToSelectAddressFragment() {
         findNavController().navigate(R.id.action_editFriendFragment_to_selectAddressFragment)
     }
 }

@@ -7,7 +7,7 @@ import org.koin.dsl.module
 val createModule = module {
     viewModel { CreateFriendViewModel(get()) }
     viewModel { (id: Long) ->
-        EditFriendViewModel(id, get() , get())
+        EditFriendViewModel(id, get(), get())
     }
     viewModel { SelectAddressViewModel(get()) }
     single { CreatePartyViewModelDelegateImpl() }
