@@ -43,6 +43,18 @@ class EditFriendViewModel(
     val saveFailExceptionEvent: LiveData<String>
         get() = _saveFailExceptionEvent
 
+    private val _isShowDelete = MutableLiveData<Boolean>()
+    val isShowDelete: LiveData<Boolean>
+        get() = _isShowDelete
+
+    private val _showConfirmDeleteEvent = LiveEvent<Unit>()
+    val showConfirmDeleteEvent: LiveData<Unit>
+        get() = _showConfirmDeleteEvent
+
+    private val _deleteSuccessEvent = LiveEvent<Unit>()
+    val deleteSuccessEvent: LiveData<Unit>
+        get() = _deleteSuccessEvent
+
     init {
         if (userId != 0L) {
             val uiFriendAddress = getFriendById(userId)
@@ -50,11 +62,13 @@ class EditFriendViewModel(
             setAddressName(uiFriendAddress?.addressName)
             setLatLng(uiFriendAddress?.latLng)
             setAddressId(uiFriendAddress?.addressId)
+            _isShowDelete.value = true
         } else {
             _name.value = null
             setAddressId(null)
             setAddressName(null)
             setLatLng(null)
+            _isShowDelete.value = false
         }
     }
 
@@ -88,5 +102,14 @@ class EditFriendViewModel(
                 _saveFailExceptionEvent.value = e.message ?: "Unknown Error"
             }
         }
+    }
+
+    fun delete() {
+        deleteById(userId)
+        _deleteSuccessEvent.value = Unit
+    }
+
+    fun showConfirmDelete() {
+        _showConfirmDeleteEvent.value = Unit
     }
 }

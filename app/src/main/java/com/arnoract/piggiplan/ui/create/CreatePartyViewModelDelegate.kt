@@ -10,6 +10,7 @@ interface CreatePartyViewModelDelegate {
     fun addFriend(data: UiFriendAddress)
     fun editFriend(id: Long, data: UiFriendAddress)
     fun getFriendById(id: Long): UiFriendAddress?
+    fun deleteById(id: Long)
 }
 
 class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
@@ -47,5 +48,9 @@ class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
         return _friends.value?.firstOrNull {
             it.id == id
         }
+    }
+
+    override fun deleteById(id: Long) {
+        _friends.value = _friends.value?.filter { it.id != id }
     }
 }
