@@ -6,6 +6,7 @@ import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
+import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentEditFriendBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -47,9 +48,16 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         mViewModel.saveFriendSuccessEvent.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
-        mViewModel.isBlankNameEvent.observe(viewLifecycleOwner) {
+        mViewModel.isBlankFriendNameEvent.observe(viewLifecycleOwner) {
             binding.textInputLayout.error =
-                getString(R.string.create_party_edit_friend_blank_name_error)
+                if (it) getString(R.string.create_party_edit_friend_blank_name_error) else null
+        }
+        mViewModel.isBlankAddressNameEvent.observe(viewLifecycleOwner) {
+            val color = if (it) R.color.dark_red else R.color.gray700
+            binding.selectAddressTextView.setTextColor(requireContext().getColor(color))
+        }
+        mViewModel.saveFailExceptionEvent.observe(viewLifecycleOwner) {
+            requireContext().toast(it)
         }
     }
 

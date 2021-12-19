@@ -1,9 +1,9 @@
 package com.arnoract.piggiplan
 
 import android.app.Application
-import androidx.test.core.app.ApplicationProvider
 import com.arnoract.piggiplan.di.AppComponent
 import com.arnoract.piggiplan.ui.di.UiComponent
+import com.arnoract.piggiplan.domain.DomainComponent
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.android.libraries.places.api.Places
 import org.koin.android.ext.koin.androidContext
@@ -20,6 +20,7 @@ class MyApplication : Application() {
         }
         AppComponent.init()
         UiComponent.init()
+        DomainComponent.init()
         Fresco.initialize(this)
     }
 }
