@@ -23,7 +23,7 @@ class EditFriendViewModel(
 ) : ViewModel(), CreatePartyViewModelDelegate by createPartyViewModelDelegateImpl,
     SelectAddressViewModelDelegate by selectAddressViewModelDelegateImpl {
 
-    private val _name = MutableLiveData<String?>()
+    private val _name = LiveEvent<String?>()
     val name: LiveData<String?>
         get() = _name
 
@@ -58,13 +58,13 @@ class EditFriendViewModel(
     init {
         if (userId != 0L) {
             val uiFriendAddress = getFriendById(userId)
-            _name.value = uiFriendAddress?.name
+            _name.postValue(uiFriendAddress?.name)
             setAddressName(uiFriendAddress?.addressName)
             setLatLng(uiFriendAddress?.latLng)
             setAddressId(uiFriendAddress?.addressId)
             _isShowDelete.value = true
         } else {
-            _name.value = null
+            _name.postValue(null)
             setAddressId(null)
             setAddressName(null)
             setLatLng(null)
