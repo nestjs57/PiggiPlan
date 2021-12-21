@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.arnoract.piggiplan.core.CoroutinesDispatcherProvider
 import com.arnoract.piggiplan.core.successOrThrow
 import com.arnoract.piggiplan.domain.create.ValidateFriendAddressUseCase
-import com.arnoract.piggiplan.domain.exception.InvalidFriendAddressException
+import com.arnoract.piggiplan.domain.create.exception.InvalidFriendAddressException
 import com.arnoract.piggiplan.ui.create.model.mapper.EditFriendToUiFriendAddressMapper
 import com.google.android.gms.maps.model.LatLng
 import com.hadilq.liveevent.LiveEvent
