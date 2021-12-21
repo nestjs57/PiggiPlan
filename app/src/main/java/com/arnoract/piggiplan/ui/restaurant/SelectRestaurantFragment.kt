@@ -8,6 +8,7 @@ import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.db.model.restaurant.RestaurantId
 import com.arnoract.piggiplan.core.dimenToPx
+import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentSelectRestaurantBinding
 import com.thekhaeng.recyclerviewmargin.LayoutMarginDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -53,6 +54,9 @@ class SelectRestaurantFragment : BaseFragment(R.layout.fragment_select_restauran
     override fun observeViewModel() {
         mViewModel.restaurants.observe(viewLifecycleOwner) {
             mAdapter.submitList(it)
+        }
+        mViewModel.getRestaurantFailEvent.observe(viewLifecycleOwner) {
+            requireContext().toast(it)
         }
     }
 
