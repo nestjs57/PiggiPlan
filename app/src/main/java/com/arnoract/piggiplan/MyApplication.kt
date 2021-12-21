@@ -2,8 +2,8 @@ package com.arnoract.piggiplan
 
 import android.app.Application
 import com.arnoract.piggiplan.di.AppComponent
-import com.arnoract.piggiplan.ui.di.UiComponent
 import com.arnoract.piggiplan.domain.DomainComponent
+import com.arnoract.piggiplan.ui.di.UiComponent
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.android.libraries.places.api.Places
 import org.koin.android.ext.koin.androidContext
