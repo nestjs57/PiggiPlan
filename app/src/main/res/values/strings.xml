@@ -1,8 +1,31 @@
 <resources>
     <string name="app_name">PiggiPlan</string>
     <string name="app_name_upper_case_with_space">PIGGI PLAN</string>
-    <string name="app_name_description">เจอกันคนละครึ่งทาง</string>
+    <string name="app_name_description">กินไรดี เจอกันคนละครึ่งทาง</string>
+
     <string name="home_empty_state_title_label">ไม่มีรายการปาร์ตี้</string>
     <string name="home_empty_state_description_label">สร้างรายการปาร์ตี้ของคุณได้เลย</string>
     <string name="home_empty_state_create_party_action_label">สร้างปาร์ตี้</string>
+
+    <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
+    <string name="create_party_restaurant_title_label">ร้านอาหาร</string>
+    <string name="create_party_search_restaurant_nearby_friend_action_label">ค้นหาร้านที่ใกล้ทุกคนที่สุด</string>
+
+    <string name="create_party_edit_friend_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
+    <string name="create_party_edit_friend_name_hint">กรอกชื่อ…</string>
+    <string name="create_party_edit_friend_action_select_address_label"><u>เลือกที่อยู่</u></string>
+    <string name="create_party_edit_friend_action_save_label">บันทึก</string>
+    <string name="create_party_edit_friend_blank_name_error">กรุณากรอกชื่อ</string>
+    <string name="create_party_edit_dialog_confirm_title">ลบข้อมูลชื่อที่อยู่</string>
+    <string name="create_party_edit_dialog_confirm_description">ต้องการลบรายการชื่อที่อยู่ของเพื่อนคนนี้หรือไม่ ?</string>
+
+    <string name="create_party_select_address_title_label">ค้นหาสถานที่…</string>
+    <string name="create_party_select_address_action_save_label">เลือกที่อยู่นี้</string>
+    <string name="create_party_select_address_blank_address_name_label">ไม่มีชื่อที่อยู่</string>
+    <string name="create_party_select_address_find_location_not_found_error">ไม่พบที่อยู่ตำแหน่งที่ค้นหา</string>
+
+    <string name="action_cancel">ยกเลิก</string>
+    <string name="action_back">ย้อนกลับ</string>
+    <string name="action_confirm">ตกลง</string>
+
 </resources>

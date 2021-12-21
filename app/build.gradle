@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "org.jetbrains.kotlin.kapt"
 }
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 31
@@ -35,6 +38,9 @@ android {
     buildFeatures {
         dataBinding true
     }
+    viewBinding {
+        enabled = true
+    }
     packagingOptions {
         exclude "**/attach_hotspot_windows.dll"
         exclude "META-INF/licenses/**"
@@ -57,6 +63,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0-alpha01'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation 'androidx.room:room-ktx:2.3.0'
+    kapt "androidx.room:room-compiler:2.3.0"
     implementation 'androidx.navigation:navigation-runtime-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
@@ -75,6 +82,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
     implementation 'junit:junit:4.12'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -107,4 +116,5 @@ dependencies {
     }
     implementation 'org.robolectric:robolectric:4.6.1'
     implementation "com.squareup.okhttp3:mockwebserver:4.9.1"
+    testImplementation 'com.jraska.livedata:testing-ktx:1.2.0'
 }

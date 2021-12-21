@@ -29,6 +29,7 @@ abstract class BaseFragment(
 	) {
 		super.onViewCreated(view, savedInstanceState)
 		setUpView()
+		setUpMap()
 		observeViewModel()
 		if (savedInstanceState == null) {
 			init()
@@ -56,6 +57,10 @@ abstract class BaseFragment(
 	 * Setup view related things (e.g., View.setOnClickListener, recyclerView setUp)
 	 */
 	open fun setUpView() {
+		//Optional
+	}
+
+	open fun setUpMap() {
 		//Optional
 	}
 
