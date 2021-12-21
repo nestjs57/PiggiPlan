@@ -24,6 +24,9 @@ class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
         binding.editFriendImageButton.setDebounceOnClickListener {
             navigateToEditFriendFragment(0L)
         }
+        binding.selectRestaurantImageButton.setDebounceOnClickListener {
+            navigateToSelectRestaurantFragment(0L)
+        }
     }
 
     override fun observeViewModel() {
@@ -43,6 +46,12 @@ class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
     private fun navigateToEditFriendFragment(id: Long) {
         val action =
             CreatePartyFragmentDirections.actionCreatePartyFragmentToEditFriendFragment(id)
+        findNavControllerSafety(R.id.createPartyFragment)?.navigate(action)
+    }
+
+    private fun navigateToSelectRestaurantFragment(id: Long) {
+        val action =
+            CreatePartyFragmentDirections.actionCreatePartyFragmentToSelectRestaurantFragment(id)
         findNavControllerSafety(R.id.createPartyFragment)?.navigate(action)
     }
 
