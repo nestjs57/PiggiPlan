@@ -1,7 +1,7 @@
 package com.arnoract.piggiplan.domain.create
 
 import com.arnoract.piggiplan.core.UseCase
-import com.arnoract.piggiplan.domain.exception.InvalidFriendAddressException
+import com.arnoract.piggiplan.domain.create.exception.InvalidFriendAddressException
 
 class ValidateFriendAddressUseCase :
     UseCase<ValidateFriendAddressUseCase.Params, Unit>() {

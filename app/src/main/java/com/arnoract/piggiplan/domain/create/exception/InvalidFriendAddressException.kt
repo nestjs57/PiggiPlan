@@ -1,4 +1,4 @@
-package com.arnoract.piggiplan.domain.exception
+package com.arnoract.piggiplan.domain.create.exception
 
 import com.arnoract.piggiplan.base.BusinessException
 import org.apache.commons.lang3.builder.HashCodeBuilder
