@@ -7,7 +7,7 @@ import com.arnoract.piggiplan.domain.model.restaurant.mapper.RestaurantToRestaur
 class RestaurantRepositoryImpl(
     private val restaurantDao: RestaurantDao,
 ) : RestaurantRepository {
-    override suspend fun addRestaurant(restaurants: List<Restaurant>) {
+    override suspend fun setRestaurants(restaurants: List<Restaurant>) {
         restaurantDao.insertOrUpdate(restaurants.map {
             RestaurantToRestaurantEntityMapper.map(it)
         })
