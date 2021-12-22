@@ -27,6 +27,9 @@ class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
         binding.selectRestaurantImageButton.setDebounceOnClickListener {
             navigateToSelectRestaurantFragment(0L)
         }
+        binding.restaurantNameTitleTextView.setDebounceOnClickListener {
+            mViewModel.navigateToSelectRestaurant()
+        }
     }
 
     override fun observeViewModel() {
@@ -40,6 +43,19 @@ class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
                 v.setOnFriendAddressItemListener(this)
                 binding.friendAddressView.addView(v)
             }
+        }
+        mViewModel.restaurantSelected.observe(viewLifecycleOwner) {
+            if (it == null) {
+                binding.restaurantNameTitleTextView.visibility = View.GONE
+                binding.selectRestaurantImageButton.visibility = View.VISIBLE
+            } else {
+                binding.restaurantNameTitleTextView.visibility = View.VISIBLE
+                binding.selectRestaurantImageButton.visibility = View.GONE
+                binding.restaurantNameTitleTextView.text = it.name
+            }
+        }
+        mViewModel.onNavigateToSelectRestaurant.observe(viewLifecycleOwner) {
+            navigateToSelectRestaurantFragment(it)
         }
     }
 

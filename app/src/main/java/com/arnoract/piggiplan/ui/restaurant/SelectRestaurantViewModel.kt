@@ -17,8 +17,9 @@ import kotlinx.coroutines.withContext
 class SelectRestaurantViewModel(
     private val restaurantId: RestaurantId,
     private val getRestaurantsUseCase: GetRestaurantsUseCase,
+    private val selectRestaurantViewModelDelegateImpl: SelectRestaurantViewModelDelegateImpl,
     private val coroutinesDispatcherProvider: CoroutinesDispatcherProvider
-) : ViewModel() {
+) : ViewModel(), SelectRestaurantViewModelDelegate by selectRestaurantViewModelDelegateImpl {
 
     private val _restaurants = MutableLiveData<List<UiRestaurant>>()
     val restaurants: LiveData<List<UiRestaurant>>
@@ -46,5 +47,10 @@ class SelectRestaurantViewModel(
         _restaurants.value = _restaurants.value?.map {
             it.copy(isSelected = it.id == id)
         }
+    }
+
+    fun saveRestaurant() {
+        val restaurantSelected = _restaurants.value?.firstOrNull { it.isSelected }
+        setRestaurantSelected(restaurantSelected)
     }
 }
