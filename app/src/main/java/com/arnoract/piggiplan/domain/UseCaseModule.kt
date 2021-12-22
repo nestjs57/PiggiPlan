@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.domain
 
+import com.arnoract.piggiplan.domain.branch.GetBranchesByRestaurantIdUseCase
 import com.arnoract.piggiplan.domain.create.ValidateFriendAddressUseCase
 import com.arnoract.piggiplan.domain.launchscreen.InitialFetchUseCase
 import com.arnoract.piggiplan.domain.restaurant.GetRestaurantsUseCase
@@ -9,4 +10,5 @@ val useCaseModule = module {
     factory { ValidateFriendAddressUseCase() }
     factory { InitialFetchUseCase(get(), get()) }
     factory { GetRestaurantsUseCase(get()) }
+    factory { GetBranchesByRestaurantIdUseCase(get()) }
 }

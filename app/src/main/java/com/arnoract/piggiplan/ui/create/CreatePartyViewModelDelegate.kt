@@ -6,6 +6,7 @@ import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 
 interface CreatePartyViewModelDelegate {
     val friends: LiveData<List<UiFriendAddress>>
+    fun getFriends(): List<UiFriendAddress>?
     fun setFriends(friends: List<UiFriendAddress>)
     fun addFriend(data: UiFriendAddress)
     fun editFriend(id: Long, data: UiFriendAddress)
@@ -18,6 +19,10 @@ class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
     private val _friends = MutableLiveData<List<UiFriendAddress>>()
     override val friends: LiveData<List<UiFriendAddress>>
         get() = _friends
+
+    override fun getFriends(): List<UiFriendAddress>? {
+        return _friends.value
+    }
 
     override fun setFriends(friends: List<UiFriendAddress>) {
         _friends.value = friends
