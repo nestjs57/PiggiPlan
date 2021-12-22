@@ -6,7 +6,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val createModule = module {
-    viewModel { CreateFriendViewModel(get(), get()) }
+    viewModel { CreatePartyViewModel(get(), get(), get(), get()) }
     viewModel { (id: Long) ->
         EditFriendViewModel(id, get(), get(), get(), get())
     }
