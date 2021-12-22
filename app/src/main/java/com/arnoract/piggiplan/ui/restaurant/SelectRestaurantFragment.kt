@@ -49,6 +49,10 @@ class SelectRestaurantFragment : BaseFragment(R.layout.fragment_select_restauran
         binding.toolbarLayout.backImageButton.setOnClickListener {
             findNavController().popBackStack()
         }
+        binding.saveRestaurantButton.setOnClickListener {
+            mViewModel.saveRestaurant()
+            findNavController().popBackStack()
+        }
     }
 
     override fun observeViewModel() {
