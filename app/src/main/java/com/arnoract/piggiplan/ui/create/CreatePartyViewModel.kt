@@ -66,7 +66,7 @@ class CreatePartyViewModel(
     ) {
         val branchDistance: MutableList<BranchDistance> = mutableListOf()
         branches.forEach { branch ->
-            var distanceAll = 0.0
+            var totalDistance = 0.0
             friends?.forEach { friend ->
                 val locationFriend = Location("locationFriend").apply {
                     latitude = friend.latLng.latitude
@@ -76,13 +76,9 @@ class CreatePartyViewModel(
                     latitude = branch.latitude
                     longitude = branch.longitude
                 }
-                val distance = getDistanceMeter(locationFriend, locationBranch)
-                distanceAll = distanceAll.plus(distance)
+                totalDistance = totalDistance.plus(getDistanceMeter(locationFriend, locationBranch))
             }
-            branchDistance.add(BranchDistance(branch, distanceAll))
+            branchDistance.add(BranchDistance(branch, totalDistance))
         }
-        var list: List<BranchDistance> = listOf()
-        list = branchDistance.sortedBy { it.totalKm }
-        print("")
     }
 }
