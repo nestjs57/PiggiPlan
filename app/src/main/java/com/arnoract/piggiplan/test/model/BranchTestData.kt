@@ -4,226 +4,72 @@ import com.arnoract.piggiplan.domain.model.branch.Branch
 
 object BranchTestData {
 
-    val branch1 = Branch(
+    private val SukiTeenoiBranch1 = Branch(
         branchId = 1L,
         resId = 1L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
+        branchName = "สุกี้ตี๋น้อย สาขา เดอะ พาซิโอ พาร์ค กาญจนาภิเษก",
+        addressName = "8/9 Kanchanaphisek Rd, เเขวง ศาลาธรรมสพน์ Thawi Watthana, Bangkok 10170",
+        latitude = 13.767064015873348,
+        longitude = 100.40566238925558,
         tel = "1150",
     )
 
-    val branch2 = Branch(
+    private val SukiTeenoiBranch2 = Branch(
         branchId = 2L,
         resId = 1L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
+        branchName = "สุกี้ตี๋น้อย เกษตร-นวมินทร์",
+        addressName = "2 ซอยประเสริฐมนูกิจ 7 ถนนประเสริฐมนูกิจ, ลาดพร้าว, Bangkok 10230",
+        latitude = 13.84207425577887,
+        longitude = 100.59443491141242,
         tel = "1150",
     )
 
-    val branch3 = Branch(
+    private val SukiTeenoiBranch3 = Branch(
         branchId = 3L,
-        resId = 2L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
+        resId = 1L,
+        branchName = "สุกี้ตี๋น้อย บ้านบางเขน",
+        addressName = "17 ถ. พหลโยธิน อนุสาวรีย์, เขตบางเขน กรุงเทพมหานคร 10220",
+        latitude = 13.863005798309647,
+        longitude = 100.58904250973546,
         tel = "1150",
     )
 
-    val branch4 = Branch(
+    private val SukiTeenoiBranch4 = Branch(
         branchId = 4L,
-        resId = 2L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
+        resId = 1L,
+        branchName = "สุกี้ตี๋น้อย เลียบทางด่วน",
+        addressName = "61 ซ. ประดิษฐ์มนูธรรม 19 แขวงลาดพร้าว เขตลาดพร้าว กรุงเทพมหานคร 10230",
+        latitude = 13.807362289394634,
+        longitude = 100.61612269977613,
         tel = "1150",
     )
 
-    val branch5 = Branch(
+    private val SukiTeenoiBranch5 = Branch(
         branchId = 5L,
-        resId = 3L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
+        resId = 1L,
+        branchName = "สุกี้ตี๋น้อย พหลฯ-วัชรพล",
+        addressName = "700 ถ. เทพรักษ์ (พหลโยธิน, ถนน วัชรพล แขวง ท่าแร้ง กรุงเทพมหานคร 10220",
+        latitude = 13.875247758733265,
+        longitude = 100.64962079792181,
+        tel = "+66968833748",
     )
 
-    val branch6 = Branch(
+    private val SukiTeenoiBranch6 = Branch(
         branchId = 6L,
-        resId = 3L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch7 = Branch(
-        branchId = 7L,
-        resId = 4L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch8 = Branch(
-        branchId = 8L,
-        resId = 4L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch9 = Branch(
-        branchId = 9L,
-        resId = 5L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch10 = Branch(
-        branchId = 10L,
-        resId = 5L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch11 = Branch(
-        branchId = 11L,
-        resId = 6L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch12 = Branch(
-        branchId = 12L,
-        resId = 6L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch13 = Branch(
-        branchId = 13L,
-        resId = 7L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch14 = Branch(
-        branchId = 14L,
-        resId = 7L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch15 = Branch(
-        branchId = 15L,
-        resId = 8L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch16 = Branch(
-        branchId = 16L,
-        resId = 8L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch17 = Branch(
-        branchId = 17L,
-        resId = 9L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch18 = Branch(
-        branchId = 18L,
-        resId = 9L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch19 = Branch(
-        branchId = 19,
-        resId = 10L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
-    )
-
-    val branch20 = Branch(
-        branchId = 20L,
-        resId = 10L,
-        branchName = "branchName",
-        addressName = "addressName",
-        latitude = 1.00,
-        longitude = 1.00,
-        tel = "1150",
+        resId = 1L,
+        branchName = "สุกี้ตี๋น้อย แจ้งวัฒนะ",
+        addressName = "หมู่ที่ 5 56/115, Thanon Chaeng Watthana, Pak Kret, Pak Kret District, Nonthaburi 11120",
+        latitude = 13.907042389877299,
+        longitude = 100.51151875559471,
+        tel = "+66918866151",
     )
 
     fun all() = listOf(
-        branch1,
-        branch2,
-        branch3,
-        branch4,
-        branch5,
-        branch6,
-        branch7,
-        branch8,
-        branch9,
-        branch10,
-        branch11,
-        branch12,
-        branch13,
-        branch14,
-        branch15,
-        branch16,
-        branch17,
-        branch18,
-        branch19,
-        branch20
+        SukiTeenoiBranch1,
+        SukiTeenoiBranch2,
+        SukiTeenoiBranch3,
+        SukiTeenoiBranch4,
+        SukiTeenoiBranch5,
+        SukiTeenoiBranch6
     )
 }

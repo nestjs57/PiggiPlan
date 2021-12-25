@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.ui.create
 
+import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,6 +12,8 @@ import com.arnoract.piggiplan.domain.model.branch.Branch
 import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegate
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegateImpl
+import com.arnoract.piggiplan.ui.restaurant.model.BranchDistance
+import com.arnoract.piggiplan.util.LocationUtil.getDistanceMeter
 import com.hadilq.liveevent.LiveEvent
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -61,6 +64,21 @@ class CreatePartyViewModel(
         friends: List<UiFriendAddress>?,
         branches: List<Branch>
     ) {
-        //todo calculateBranchesNearByFriends
+        val branchDistance: MutableList<BranchDistance> = mutableListOf()
+        branches.forEach { branch ->
+            var totalDistance = 0.0
+            friends?.forEach { friend ->
+                val locationFriend = Location("locationFriend").apply {
+                    latitude = friend.latLng.latitude
+                    longitude = friend.latLng.longitude
+                }
+                val locationBranch = Location("locationBranch").apply {
+                    latitude = branch.latitude
+                    longitude = branch.longitude
+                }
+                totalDistance = totalDistance.plus(getDistanceMeter(locationFriend, locationBranch))
+            }
+            branchDistance.add(BranchDistance(branch, totalDistance))
+        }
     }
 }

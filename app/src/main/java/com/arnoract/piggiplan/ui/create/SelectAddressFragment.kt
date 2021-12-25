@@ -2,6 +2,7 @@ package com.arnoract.piggiplan.ui.create
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolygonOptions
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
@@ -88,6 +90,10 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
     }
 
     private fun addMarker(latLng: LatLng?) {
+        val polygon = mMap.addPolygon(PolygonOptions()
+            .add(latLng)
+        .strokeColor(Color.RED)
+            .fillColor(Color.BLUE))
         mMap.addMarker(
             MarkerOptions().position(latLng ?: LatLng(0.0, 0.0))
         )
