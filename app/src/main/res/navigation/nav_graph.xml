@@ -42,6 +42,11 @@
             app:destination="@id/editFriendFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_createPartyFragment_to_SelectRestaurantFragment"
+            app:destination="@id/selectRestaurantFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
     <fragment
@@ -65,6 +70,18 @@
         android:name="com.arnoract.piggiplan.ui.create.SelectAddressFragment"
         android:label="SelectAddressFragment"
         tools:layout="@layout/fragment_select_address">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectRestaurantFragment"
+        android:name="com.arnoract.piggiplan.ui.restaurant.SelectRestaurantFragment"
+        android:label="SelectRestaurantFragment"
+        tools:layout="@layout/fragment_select_restaurant">
+
+        <argument
+            android:name="id"
+            app:argType="long" />
 
     </fragment>
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.create.CreatePartyFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/restaurantTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_normal"
+            android:text="@string/create_party_select_restaurant_restaurant_title_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_headline"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/restaurantRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/space_normal"
+            android:layout_marginTop="@dimen/space_normal"
+            android:layout_weight="1"
+            tools:itemCount="6"
+            tools:layoutManager="GridLayoutManager"
+            tools:listitem="@layout/view_item_restaurant"
+            tools:spanCount="2" />
+
+        <Button
+            android:id="@+id/saveRestaurantButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_large"
+            android:text="@string/create_party_select_restaurant_action_save_label" />
+
+    </LinearLayout>
+</layout>

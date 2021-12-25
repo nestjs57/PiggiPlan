@@ -73,7 +73,7 @@ class EditFriendFragment : BaseFragment(R.layout.fragment_edit_friend) {
         }
         mViewModel.showConfirmDeleteEvent.observe(viewLifecycleOwner) {
             MaterialAlertDialogBuilder(requireContext())
-                .setMessage(resources.getString(R.string.create_party_edit_dialog_confirm_description))
+                .setMessage(resources.getString(R.string.create_party_delete_friend_confirm_dialog_description))
                 .setNegativeButton(resources.getString(R.string.action_cancel)) { _, _ ->
                     //Do Nothing
                 }

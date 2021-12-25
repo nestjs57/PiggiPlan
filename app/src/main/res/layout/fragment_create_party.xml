@@ -77,6 +77,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/friendAddressView" />
 
                 <ImageButton
+                    android:id="@+id/selectRestaurantImageButton"
                     android:layout_width="30dp"
                     android:layout_height="0dp"
                     android:layout_marginEnd="@dimen/space_large"
