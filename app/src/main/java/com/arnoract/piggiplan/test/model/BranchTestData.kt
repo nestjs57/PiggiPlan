@@ -12,6 +12,7 @@ object BranchTestData {
         latitude = 13.767064015873348,
         longitude = 100.40566238925558,
         tel = "1150",
+        description = ""
     )
 
     private val SukiTeenoiBranch2 = Branch(
@@ -22,6 +23,7 @@ object BranchTestData {
         latitude = 13.84207425577887,
         longitude = 100.59443491141242,
         tel = "1150",
+        description = ""
     )
 
     private val SukiTeenoiBranch3 = Branch(
@@ -32,6 +34,7 @@ object BranchTestData {
         latitude = 13.863005798309647,
         longitude = 100.58904250973546,
         tel = "1150",
+        description = ""
     )
 
     private val SukiTeenoiBranch4 = Branch(
@@ -42,6 +45,7 @@ object BranchTestData {
         latitude = 13.807362289394634,
         longitude = 100.61612269977613,
         tel = "1150",
+        description = ""
     )
 
     private val SukiTeenoiBranch5 = Branch(
@@ -52,6 +56,7 @@ object BranchTestData {
         latitude = 13.875247758733265,
         longitude = 100.64962079792181,
         tel = "+66968833748",
+        description = ""
     )
 
     private val SukiTeenoiBranch6 = Branch(
@@ -62,6 +67,7 @@ object BranchTestData {
         latitude = 13.907042389877299,
         longitude = 100.51151875559471,
         tel = "+66918866151",
+        description = ""
     )
 
     fun all() = listOf(

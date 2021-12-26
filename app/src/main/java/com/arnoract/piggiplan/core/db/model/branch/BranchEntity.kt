@@ -16,6 +16,8 @@ data class BranchEntity(
     val branchName: String,
     @ColumnInfo(name = "address_name")
     val addressName: String,
+    @ColumnInfo(name = "description")
+    val description: String,
     @ColumnInfo(name = "lat")
     val latitude: Double,
     @ColumnInfo(name = "lng")
