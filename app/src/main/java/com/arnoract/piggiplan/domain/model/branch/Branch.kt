@@ -11,4 +11,5 @@ data class Branch(
     val latitude: Double,
     val longitude: Double,
     val tel: String,
+    val description: String
 )

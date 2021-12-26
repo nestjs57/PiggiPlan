@@ -13,7 +13,8 @@ object BranchEntityToBranchMapper : Mapper<BranchEntity, Branch> {
             addressName = from.addressName,
             latitude = from.latitude,
             longitude = from.longitude,
-            tel = from.tel
+            tel = from.tel,
+            description = from.description
         )
     }
 }

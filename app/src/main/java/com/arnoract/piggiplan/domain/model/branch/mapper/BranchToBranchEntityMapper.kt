@@ -14,6 +14,7 @@ object BranchToBranchEntityMapper : Mapper<Branch, BranchEntity> {
             latitude = from.latitude,
             longitude = from.longitude,
             tel = from.tel,
+            description = from.description
         )
     }
 }
