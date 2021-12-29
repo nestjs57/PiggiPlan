@@ -6,6 +6,7 @@ import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.db.model.branch.BranchId
+import com.arnoract.piggiplan.core.findNavControllerSafety
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
 import com.arnoract.piggiplan.databinding.FragmentBranchesNearbyBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -46,6 +47,8 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
     }
 
     override fun onBranchItemClick(id: BranchId) {
-
+        val action =
+            BranchesNearbyFragmentDirections.actionBranchesNearbyFragmentToBranchesDetailFragment(id)
+        findNavControllerSafety(R.id.branchesNearbyFragment)?.navigate(action)
     }
 }

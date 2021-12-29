@@ -30,6 +30,14 @@ class BranchesNearbyViewHolder(
 
     private var mData: UiBranchNearby? = null
 
+    init {
+        binding.branchItemLayout.setOnClickListener {
+            mData?.let {
+                mListener.onBranchItemClick(it.id)
+            }
+        }
+    }
+
     override fun fillData(data: UiBranchNearby?, position: Int) {
         mData = data
         data?.let {
@@ -60,5 +68,4 @@ class BranchesNearbyViewHolder(
     interface OnBranchItemClickListener {
         fun onBranchItemClick(id: BranchId)
     }
-
 }

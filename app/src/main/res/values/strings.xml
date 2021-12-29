@@ -29,8 +29,10 @@
 
     <string name="branch_near_by_title">สาขาที่ใกล้เคียงทุกคนมากที่สุด 5 สาขา</string>
 
+    <string name="branch_detail_information_tab_item">ข้อมูลทั่วไป</string>
+    <string name="branch_detail_nearby_tab_item">สาขาใกล้เคียง</string>
+
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>
     <string name="action_confirm">ตกลง</string>
-
 </resources>
