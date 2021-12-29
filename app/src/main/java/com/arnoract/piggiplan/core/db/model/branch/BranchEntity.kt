@@ -12,6 +12,8 @@ data class BranchEntity(
     val branchId: BranchId,
     @ColumnInfo(name = "res_id")
     val resId: RestaurantId,
+    @ColumnInfo(name = "photo")
+    val photo: String,
     @ColumnInfo(name = "branch_name")
     val branchName: String,
     @ColumnInfo(name = "address_name")

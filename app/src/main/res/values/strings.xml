@@ -3,13 +3,13 @@
     <string name="app_name_upper_case_with_space">PIGGI PLAN</string>
     <string name="app_name_description">กินไรดี เจอกันคนละครึ่งทาง</string>
 
-    <string name="home_empty_state_title_label">ไม่มีรายการปาร์ตี้</string>
-    <string name="home_empty_state_description_label">สร้างรายการปาร์ตี้ของคุณได้เลย</string>
-    <string name="home_empty_state_create_party_action_label">สร้างปาร์ตี้</string>
+    <string name="home_empty_state_title_label">ยังไม่เคยมีรายการที่คุณค้นหา</string>
+    <string name="home_empty_state_description_label">เริ่มค้นหารายการร้านอาหารที่ใกล้ทุกคนที่สุดเลย</string>
+    <string name="home_empty_state_search_branches_nearby_action_label">เริ่มค้นหา</string>
 
     <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
     <string name="create_party_restaurant_title_label">ร้านอาหาร</string>
-    <string name="create_party_incomplete_data_dialog_description">ข้อมูลไม่เพียงพอ ไม่ได้กรอกข้อมูลเพื่อนหรือร้านอาหาร</string>
+    <string name="create_party_incomplete_data_dialog_description">ข้อมูลไม่เพียงพอ\nไม่มีข้อมูลเพื่อนหรือไม่ได้เลือกร้านอาหาร</string>
     <string name="create_party_search_restaurant_nearby_friend_action_label">ค้นหาร้านที่ใกล้ทุกคนที่สุด</string>
 
     <string name="create_party_edit_friend_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 
-interface CreatePartyViewModelDelegate {
+interface SearchBranchesNearbyViewModelDelegate {
     val friends: LiveData<List<UiFriendAddress>>
     fun getFriends(): List<UiFriendAddress>?
     fun setFriends(friends: List<UiFriendAddress>)
@@ -14,7 +14,7 @@ interface CreatePartyViewModelDelegate {
     fun deleteById(id: Long)
 }
 
-class CreatePartyViewModelDelegateImpl : CreatePartyViewModelDelegate {
+class SearchBranchesNearbyViewModelDelegateImpl : SearchBranchesNearbyViewModelDelegate {
 
     private val _friends = MutableLiveData<List<UiFriendAddress>>()
     override val friends: LiveData<List<UiFriendAddress>>

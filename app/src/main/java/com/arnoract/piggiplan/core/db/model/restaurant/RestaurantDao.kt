@@ -8,4 +8,7 @@ import com.arnoract.piggiplan.core.db.model.BaseDao
 abstract class RestaurantDao  : BaseDao<RestaurantEntity>(){
     @Query("SELECT * from restaurant")
     abstract suspend fun findAll(): List<RestaurantEntity>
+
+    @Query("SELECT * FROM restaurant WHERE res_id = :restaurantId")
+    abstract suspend fun findRestaurantById(restaurantId: RestaurantId): List<RestaurantEntity>
 }
