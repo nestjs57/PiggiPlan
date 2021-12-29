@@ -26,25 +26,30 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_homeFragment_to_CreatePartyFragment"
-            app:destination="@id/createPartyFragment" />
+            android:id="@+id/action_homeFragment_to_SearchBranchesNearbyFragment"
+            app:destination="@id/searchBranchesNearbyFragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/createPartyFragment"
-        android:name="com.arnoract.piggiplan.ui.create.CreatePartyFragment"
-        android:label="CreateFragment"
-        tools:layout="@layout/fragment_create_party">
+        android:id="@+id/searchBranchesNearbyFragment"
+        android:name="com.arnoract.piggiplan.ui.create.SearchBranchesNearbyFragment"
+        android:label="SearchBranchesNearbyFragment"
+        tools:layout="@layout/fragment_search_branch_nearby">
 
         <action
-            android:id="@+id/action_createPartyFragment_to_EditFriendFragment"
+            android:id="@+id/action_searchBranchesNearbyFragment_to_EditFriendFragment"
             app:destination="@id/editFriendFragment"
             app:popUpToInclusive="true" />
 
         <action
-            android:id="@+id/action_createPartyFragment_to_SelectRestaurantFragment"
+            android:id="@+id/action_searchBranchesNearbyFragment_to_SelectRestaurantFragment"
             app:destination="@id/selectRestaurantFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_searchBranchesNearbyFragment_to_BranchesNearbyFragment"
+            app:destination="@id/branchesNearbyFragment"
             app:popUpToInclusive="true" />
 
     </fragment>
@@ -82,6 +87,13 @@
         <argument
             android:name="id"
             app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchesNearbyFragment"
+        android:name="com.arnoract.piggiplan.ui.branch.BranchesNearbyFragment"
+        android:label="BranchesNearbyFragment"
+        tools:layout="@layout/fragment_branches_nearby">
 
     </fragment>
 

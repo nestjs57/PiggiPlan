@@ -16,11 +16,11 @@ import kotlinx.coroutines.withContext
 
 class EditFriendViewModel(
     private val userId: Long,
-    private val createPartyViewModelDelegateImpl: CreatePartyViewModelDelegateImpl,
+    private val searchBranchesNearbyViewModelDelegateImpl: SearchBranchesNearbyViewModelDelegateImpl,
     private val selectAddressViewModelDelegateImpl: SelectAddressViewModelDelegateImpl,
     private val validateFriendAddressUseCase: ValidateFriendAddressUseCase,
     private val coroutinesDispatcherProvider: CoroutinesDispatcherProvider
-) : ViewModel(), CreatePartyViewModelDelegate by createPartyViewModelDelegateImpl,
+) : ViewModel(), SearchBranchesNearbyViewModelDelegate by searchBranchesNearbyViewModelDelegateImpl,
     SelectAddressViewModelDelegate by selectAddressViewModelDelegateImpl {
 
     private val _name = LiveEvent<String?>()

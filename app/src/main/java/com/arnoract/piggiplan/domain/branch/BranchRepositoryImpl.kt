@@ -7,7 +7,7 @@ import com.arnoract.piggiplan.domain.model.branch.mapper.BranchEntityToBranchMap
 import com.arnoract.piggiplan.domain.model.branch.mapper.BranchToBranchEntityMapper
 
 class BranchRepositoryImpl(
-    private val branchDao: BranchDao
+    private val branchDao: BranchDao,
 ) : BranchRepository {
     override suspend fun setBranches(branches: List<Branch>) {
         branchDao.insertOrUpdate(branches.map {
