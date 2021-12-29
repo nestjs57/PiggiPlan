@@ -6,11 +6,11 @@
     tools:context=".ui.create.SearchBranchesNearbyFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/branchItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:orientation="vertical"
         android:paddingHorizontal="@dimen/space_large"
         android:paddingTop="@dimen/space_normal">
 

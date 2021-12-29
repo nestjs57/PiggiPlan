@@ -95,6 +95,21 @@
         android:label="BranchesNearbyFragment"
         tools:layout="@layout/fragment_branches_nearby">
 
+        <action
+            android:id="@+id/action_branchesNearbyFragment_to_branchesDetailFragment"
+            app:destination="@id/branchesDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchesDetailFragment"
+        android:name="com.arnoract.piggiplan.ui.branch.BranchDetailFragment"
+        android:label="BranchesDetailFragment"
+        tools:layout="@layout/fragment_branch_detail">
+
+        <argument
+            android:name="branchId"
+            app:argType="long" />
     </fragment>
 
 </navigation>

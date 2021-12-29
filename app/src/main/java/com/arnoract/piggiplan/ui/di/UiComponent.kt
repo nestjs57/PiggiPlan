@@ -12,6 +12,7 @@ object UiComponent {
             editFriendModule,
             selectAddressModule,
             branchesNearbyModule,
+            branchDetailModule,
         )
     )
 }
