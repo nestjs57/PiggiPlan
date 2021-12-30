@@ -18,6 +18,10 @@ class BranchDetailFragment : BaseFragment(R.layout.fragment_branch_detail) {
         parametersOf(args.branchId)
     }
 
+    override fun init() {
+        binding.branchDetailTabLayout.selectTab(binding.branchDetailTabLayout.getTabAt(0))
+    }
+
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setOnClickListener {
             findNavController().popBackStack()
