@@ -48,7 +48,7 @@ class BranchDetailNearbyViewModel(
                             branch = it
                         )
                     )
-                }.sortedBy { it.distance }
+                }.filter { it.id != currentBranch.branchId }.sortedBy { it.distance }
             } catch (e: Exception) {
                 _getBranchByBranchIdFailException.value = e.message ?: "Unknown Error"
             }
