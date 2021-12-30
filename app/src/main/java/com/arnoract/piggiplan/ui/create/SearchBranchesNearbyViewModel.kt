@@ -15,7 +15,7 @@ import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegate
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegateImpl
 import com.arnoract.piggiplan.ui.restaurant.model.BranchDistance
-import com.arnoract.piggiplan.util.LocationUtil.getDistanceMeter
+import com.arnoract.piggiplan.util.getDistanceMeter
 import com.hadilq.liveevent.LiveEvent
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

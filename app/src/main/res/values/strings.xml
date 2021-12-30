@@ -32,6 +32,9 @@
     <string name="branch_detail_information_tab_item">ข้อมูลทั่วไป</string>
     <string name="branch_detail_nearby_tab_item">สาขาใกล้เคียง</string>
 
+    <string name="branch_detail_information_action_make_a_call">กดเพื่อโทรออก</string>
+    <string name="branch_detail_information_action_open_google_map">เปิด GoogleMap เพื่อนำทาง</string>
+
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>
     <string name="action_confirm">ตกลง</string>

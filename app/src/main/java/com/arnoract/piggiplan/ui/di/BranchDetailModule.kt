@@ -12,7 +12,7 @@ val branchDetailModule = module {
         BranchDetailViewModel(branchId, get(), get())
     }
     viewModel { (branchId: BranchId) ->
-        BranchDetailInformationViewModel(branchId)
+        BranchDetailInformationViewModel(branchId, get(), get())
     }
     viewModel { (branchId: BranchId) ->
         BranchDetailNearbyViewModel(branchId)
