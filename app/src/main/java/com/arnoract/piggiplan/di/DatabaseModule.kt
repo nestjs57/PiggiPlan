@@ -9,4 +9,5 @@ val databaseModule = module {
     single { DatabaseBuilder(androidApplication()).buildRoomDatabaseStorage() }
     single { DaoBuilder(get()).getRestaurantDao() }
     single { DaoBuilder(get()).getBranchDao() }
+    single { DaoBuilder(get()).getFavoriteDao() }
 }
