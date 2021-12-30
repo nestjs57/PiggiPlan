@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.ui.branch
 
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.arnoract.piggiplan.R
@@ -25,6 +26,9 @@ class BranchDetailFragment : BaseFragment(R.layout.fragment_branch_detail) {
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setOnClickListener {
             findNavController().popBackStack()
+        }
+        binding.toolbarLayout.drawableEndImageButton.setOnClickListener {
+            mViewModel.updateFavorite()
         }
         binding.branchDetailTabLayout.addOnTabSelectedListener(object :
             TabLayout.OnTabSelectedListener {
@@ -58,6 +62,14 @@ class BranchDetailFragment : BaseFragment(R.layout.fragment_branch_detail) {
     override fun observeViewModel() {
         mViewModel.branchName.observe(viewLifecycleOwner) {
             binding.toolbarLayout.toolbarTitleTextView.text = it
+        }
+        mViewModel.isFavorite.observe(viewLifecycleOwner) {
+            binding.toolbarLayout.drawableEndImageButton.apply {
+                val drawable =
+                    if (it == true) R.drawable.ic_favorite else R.drawable.ic_favorite_border
+                setImageResource(drawable)
+                visibility = View.VISIBLE
+            }
         }
     }
 }

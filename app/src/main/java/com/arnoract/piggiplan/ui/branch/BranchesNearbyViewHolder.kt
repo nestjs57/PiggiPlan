@@ -1,6 +1,7 @@
 package com.arnoract.piggiplan.ui.branch
 
 import android.view.ViewGroup
+import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.inflater
 import com.arnoract.piggiplan.base.recyclerview.ItemViewHolder
 import com.arnoract.piggiplan.core.db.model.branch.BranchId
@@ -36,6 +37,11 @@ class BranchesNearbyViewHolder(
                 mListener.onBranchItemClick(it.id)
             }
         }
+        binding.favoriteImageButton.setOnClickListener {
+            mData?.let {
+                mListener.onFavoriteClick(it.id)
+            }
+        }
     }
 
     override fun fillData(data: UiBranchNearby?, position: Int) {
@@ -44,7 +50,13 @@ class BranchesNearbyViewHolder(
             fillBranchName(it)
             fillDescription(it)
             fillImage(it)
+            fillFavorite(it)
         }
+    }
+
+    private fun fillFavorite(it: UiBranchNearby) {
+        val drawable = if (it.isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border
+        binding.favoriteImageButton.setImageResource(drawable)
     }
 
     private fun fillBranchName(it: UiBranchNearby) {
@@ -67,5 +79,6 @@ class BranchesNearbyViewHolder(
 
     interface OnBranchItemClickListener {
         fun onBranchItemClick(id: BranchId)
+        fun onFavoriteClick(branchId: BranchId)
     }
 }

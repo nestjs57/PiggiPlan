@@ -7,7 +7,7 @@ import org.koin.dsl.module
 
 val branchesNearbyModule = module {
     viewModel {
-        BranchesNearbyViewModel(get())
+        BranchesNearbyViewModel(get(), get(), get(), get())
     }
     single { BranchesNearbyDelegateImpl() }
 }
