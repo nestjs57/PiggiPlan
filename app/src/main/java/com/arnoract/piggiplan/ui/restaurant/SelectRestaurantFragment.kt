@@ -8,8 +8,8 @@ import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.db.model.restaurant.RestaurantId
 import com.arnoract.piggiplan.core.dimenToPx
-import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentSelectRestaurantBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.thekhaeng.recyclerviewmargin.LayoutMarginDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -61,7 +61,12 @@ class SelectRestaurantFragment : BaseFragment(R.layout.fragment_select_restauran
             mAdapter.submitList(it)
         }
         mViewModel.getRestaurantFailEvent.observe(viewLifecycleOwner) {
-            requireContext().toast(it)
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(it)
+                .setPositiveButton(resources.getString(R.string.action_confirm)) { _, _ ->
+                    //Do Nothing
+                }
+                .show()
         }
     }
 

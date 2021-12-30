@@ -5,4 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.branch.BranchDetailNearbyFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/branchesNearbyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/view_item_branch_detail_nearby" />
+
 </FrameLayout>

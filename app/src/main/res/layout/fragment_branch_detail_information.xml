@@ -38,7 +38,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_headline"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/branchCardView"
             app:layout_constraintTop_toTopOf="@+id/branchCardView"
@@ -91,6 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_large"
+            android:textColor="@color/purple_700"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/locationImageView"
             app:layout_constraintTop_toTopOf="@+id/locationImageView"
             tools:text="เปิด GoogleMap เพื่อนำทาง" />

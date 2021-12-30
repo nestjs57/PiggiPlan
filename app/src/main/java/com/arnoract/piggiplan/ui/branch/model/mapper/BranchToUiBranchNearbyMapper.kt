@@ -1,7 +1,8 @@
-package com.arnoract.piggiplan.ui.branch.model
+package com.arnoract.piggiplan.ui.branch.model.mapper
 
 import com.arnoract.piggiplan.core.Mapper
 import com.arnoract.piggiplan.domain.model.branch.Branch
+import com.arnoract.piggiplan.ui.branch.model.UiBranchNearby
 
 object BranchToUiBranchNearbyMapper : Mapper<Branch, UiBranchNearby> {
     override fun map(from: Branch): UiBranchNearby {

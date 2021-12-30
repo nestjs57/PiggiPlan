@@ -34,6 +34,8 @@
 
     <string name="branch_detail_information_action_make_a_call">กดเพื่อโทรออก</string>
     <string name="branch_detail_information_action_open_google_map">เปิด GoogleMap เพื่อนำทาง</string>
+    <string name="branch_detail_nearby_away_from_branch_m">ห่างจากสาขานี้ %1$s m.</string>
+    <string name="branch_detail_nearby_away_from_branch_km">ห่างจากสาขานี้ %1$s km</string>
 
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>
