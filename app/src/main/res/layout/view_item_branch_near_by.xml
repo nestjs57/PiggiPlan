@@ -15,8 +15,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/branchCardView"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:layout_margin="@dimen/space_small"
             app:cardCornerRadius="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_headline"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/favoriteImageButton"
             app:layout_constraintStart_toEndOf="@+id/branchCardView"
             app:layout_constraintTop_toTopOf="@+id/branchCardView"
@@ -46,7 +46,7 @@
 เอกมัย รามอินทรา" />
 
         <TextView
-            android:id="@+id/branchDescription"
+            android:id="@+id/branchDescriptionTextview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"

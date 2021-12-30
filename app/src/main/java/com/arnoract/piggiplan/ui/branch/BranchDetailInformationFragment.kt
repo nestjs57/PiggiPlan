@@ -10,14 +10,15 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.db.model.branch.BranchId
-import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentBranchDetailInformationBinding
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import java.util.*
@@ -76,7 +77,12 @@ class BranchDetailInformationFragment : BaseFragment(R.layout.fragment_branch_de
                     data = Uri.parse("tel:$it")
                 })
             } catch (e: Exception) {
-                requireContext().toast(e.message.toString())
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(e.message.toString())
+                    .setPositiveButton(resources.getString(R.string.action_confirm)) { _, _ ->
+                        //Do Nothing
+                    }
+                    .show()
             }
         }
         mViewModel.openGoogleMapEvent.observe(viewLifecycleOwner) {
@@ -91,7 +97,12 @@ class BranchDetailInformationFragment : BaseFragment(R.layout.fragment_branch_de
                     data = Uri.parse(uri)
                 })
             } catch (e: Exception) {
-                requireContext().toast(e.message.toString())
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(e.message.toString())
+                    .setPositiveButton(resources.getString(R.string.action_confirm)) { _, _ ->
+                        //Do Nothing
+                    }
+                    .show()
             }
         }
     }
@@ -100,20 +111,22 @@ class BranchDetailInformationFragment : BaseFragment(R.layout.fragment_branch_de
         return buildSpannedString {
             append(phoneNumber)
             append(" ")
-            append(
-                getString(R.string.branch_detail_information_action_make_a_call),
-                object : ClickableSpan() {
-                    override fun onClick(widget: View) {
-                        mViewModel.openTelephone()
-                    }
+                .bold {
+                    append(
+                        getString(R.string.branch_detail_information_action_make_a_call),
+                        object : ClickableSpan() {
+                            override fun onClick(widget: View) {
+                                mViewModel.openTelephone()
+                            }
 
-                    override fun updateDrawState(ds: TextPaint) {
-                        ds.color = requireContext().getColor(R.color.purple_700)
-                        ds.isUnderlineText = true
-                    }
-                },
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+                            override fun updateDrawState(ds: TextPaint) {
+                                ds.color = requireContext().getColor(R.color.purple_700)
+                                ds.isUnderlineText = true
+                            }
+                        },
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
         }
     }
 

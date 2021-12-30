@@ -52,7 +52,7 @@ class BranchesNearbyViewHolder(
     }
 
     private fun fillDescription(it: UiBranchNearby) {
-        binding.branchDescription.text = it.description
+        binding.branchDescriptionTextview.text = it.description
     }
 
     private fun fillImage(data: UiBranchNearby) {

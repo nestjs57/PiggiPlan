@@ -3,8 +3,8 @@ package com.arnoract.piggiplan.ui.branch
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.arnoract.piggiplan.ui.branch.model.BranchToUiBranchNearbyMapper
 import com.arnoract.piggiplan.ui.branch.model.UiBranchNearby
+import com.arnoract.piggiplan.ui.branch.model.mapper.BranchToUiBranchNearbyMapper
 import com.arnoract.piggiplan.util.setValueIfNew
 
 class BranchesNearbyViewModel(
