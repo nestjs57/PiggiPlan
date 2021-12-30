@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.branch.BranchesNearbyFragment">
 
     <include
@@ -16,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/branchNearbyTitleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/space_large"
         android:layout_marginTop="@dimen/space_large"
         android:text="@string/branch_near_by_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_sub_title"
+        android:textSize="@dimen/text_headline"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,20 +38,19 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:src="@drawable/ic_pin"
-        app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/branchNearbyTitleTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleTextView" />
+        app:layout_constraintTop_toTopOf="@+id/branchNearbyTitleTextView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/branchesRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/space_large"
-        android:layout_marginBottom="@dimen/space_larger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/branchNearbyTitleTextView"
         tools:listitem="@layout/view_item_branch_near_by" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

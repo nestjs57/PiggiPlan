@@ -9,6 +9,7 @@ object BranchEntityToBranchMapper : Mapper<BranchEntity, Branch> {
         return Branch(
             branchId = from.branchId,
             resId = from.resId,
+            photoImage = from.photo,
             branchName = from.branchName,
             addressName = from.addressName,
             latitude = from.latitude,

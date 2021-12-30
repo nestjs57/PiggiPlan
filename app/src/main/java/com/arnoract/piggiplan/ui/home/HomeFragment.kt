@@ -12,8 +12,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
 
     override fun setUpView() {
-        binding.emptyStateLayout.createPartyButton.setDebounceOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_CreatePartyFragment)
+        binding.emptyStateLayout.searchBranchesButton.setDebounceOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_SearchBranchesNearbyFragment)
         }
     }
 }

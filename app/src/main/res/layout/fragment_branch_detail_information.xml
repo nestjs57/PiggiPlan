@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.branch.BranchDetailInformationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/branchItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/space_large"
+        android:paddingTop="@dimen/space_large">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/branchCardView"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_margin="@dimen/space_small"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/photoImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/space_large" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/branchNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_large"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/branchCardView"
+            app:layout_constraintTop_toTopOf="@+id/branchCardView"
+            tools:text="เลียบด่วน
+เอกมัย รามอินทรา" />
+
+        <TextView
+            android:id="@+id/branchDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small"
+            android:textColor="@color/gray500"
+            app:layout_constraintEnd_toEndOf="@+id/branchNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/branchNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/branchNameTextView"
+            tools:text="อยู่ฝั่งเดียวกับเซ็ลทรัลอัสต์วิลล์ ก่อน
+ถึงปั้มบาง จาก หลังร้าน76" />
+
+        <ImageView
+            android:id="@+id/mobileImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_normal"
+            android:layout_marginTop="@dimen/space_normal_12dp"
+            android:src="@drawable/ic_mobile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/branchCardView" />
+
+        <TextView
+            android:id="@+id/phoneNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_large"
+            app:layout_constraintStart_toEndOf="@+id/mobileImageView"
+            app:layout_constraintTop_toTopOf="@+id/mobileImageView"
+            tools:text="081-03945817 (กดเพื่อโทรออก)" />
+
+        <ImageView
+            android:id="@+id/locationImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_normal"
+            android:layout_marginTop="@dimen/space_normal_12dp"
+            android:src="@drawable/ic_pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileImageView" />
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_large"
+            android:textColor="@color/purple_700"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/locationImageView"
+            app:layout_constraintTop_toTopOf="@+id/locationImageView"
+            tools:text="เปิด GoogleMap เพื่อนำทาง" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

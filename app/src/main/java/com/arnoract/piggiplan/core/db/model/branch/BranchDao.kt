@@ -12,4 +12,7 @@ abstract class BranchDao : BaseDao<BranchEntity>() {
 
     @Query("SELECT * FROM branch WHERE res_id = :restaurantId")
     abstract suspend fun findByRestaurantId(restaurantId: RestaurantId): List<BranchEntity>
+
+    @Query("SELECT * FROM branch WHERE branch_id = :branchId")
+    abstract suspend fun findByBranchId(branchId: BranchId): BranchEntity
 }

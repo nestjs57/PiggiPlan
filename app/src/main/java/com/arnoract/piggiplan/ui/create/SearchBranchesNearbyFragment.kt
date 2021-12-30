@@ -7,16 +7,16 @@ import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.findNavControllerSafety
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
-import com.arnoract.piggiplan.databinding.FragmentCreatePartyBinding
+import com.arnoract.piggiplan.databinding.FragmentSearchBranchNearbyBinding
 import com.arnoract.piggiplan.ui.custom.FriendAddressItemView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
+class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branch_nearby),
     FriendAddressItemView.OnFriendAddressItemListener {
 
-    private val binding by viewBinding(FragmentCreatePartyBinding::bind)
-    private val mViewModel: CreatePartyViewModel by viewModel()
+    private val binding by viewBinding(FragmentSearchBranchNearbyBinding::bind)
+    private val mViewModel: SearchBranchesNearbyViewModel by viewModel()
 
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
@@ -69,18 +69,31 @@ class CreatePartyFragment : BaseFragment(R.layout.fragment_create_party),
                 }
                 .show()
         }
+        mViewModel.calculateBranchesNearbySuccessEvent.observe(viewLifecycleOwner) {
+            navigateToBranchesNearByFragment()
+        }
     }
 
     private fun navigateToEditFriendFragment(id: Long) {
         val action =
-            CreatePartyFragmentDirections.actionCreatePartyFragmentToEditFriendFragment(id)
-        findNavControllerSafety(R.id.createPartyFragment)?.navigate(action)
+            SearchBranchesNearbyFragmentDirections.actionSearchBranchesNearbyFragmentToEditFriendFragment(
+                id
+            )
+        findNavControllerSafety(R.id.searchBranchesNearbyFragment)?.navigate(action)
     }
 
     private fun navigateToSelectRestaurantFragment(id: Long) {
         val action =
-            CreatePartyFragmentDirections.actionCreatePartyFragmentToSelectRestaurantFragment(id)
-        findNavControllerSafety(R.id.createPartyFragment)?.navigate(action)
+            SearchBranchesNearbyFragmentDirections.actionSearchBranchesNearbyFragmentToSelectRestaurantFragment(
+                id
+            )
+        findNavControllerSafety(R.id.searchBranchesNearbyFragment)?.navigate(action)
+    }
+
+    private fun navigateToBranchesNearByFragment() {
+        val action =
+            SearchBranchesNearbyFragmentDirections.actionSearchBranchesNearbyFragmentToBranchesNearbyFragment()
+        findNavControllerSafety(R.id.searchBranchesNearbyFragment)?.navigate(action)
     }
 
     override fun onFriendAddressClick(id: Long) {

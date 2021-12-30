@@ -19,6 +19,7 @@
         app:tint="@color/black" />
 
     <TextView
+        android:id="@+id/toolbarTitleTextView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -27,6 +28,8 @@
         android:text="@string/action_back"
         android:textColor="@color/black"
         android:textSize="@dimen/text_headline"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textStyle="bold" />
 
     <ImageButton

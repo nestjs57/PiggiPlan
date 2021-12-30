@@ -9,22 +9,26 @@ import com.arnoract.piggiplan.core.db.model.restaurant.RestaurantId
 import com.arnoract.piggiplan.core.successOr
 import com.arnoract.piggiplan.domain.branch.GetBranchesByRestaurantIdUseCase
 import com.arnoract.piggiplan.domain.model.branch.Branch
+import com.arnoract.piggiplan.ui.branch.BranchesNearbyDelegate
+import com.arnoract.piggiplan.ui.branch.BranchesNearbyDelegateImpl
 import com.arnoract.piggiplan.ui.create.model.UiFriendAddress
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegate
 import com.arnoract.piggiplan.ui.restaurant.SelectRestaurantViewModelDelegateImpl
 import com.arnoract.piggiplan.ui.restaurant.model.BranchDistance
-import com.arnoract.piggiplan.util.LocationUtil.getDistanceMeter
+import com.arnoract.piggiplan.util.getDistanceMeter
 import com.hadilq.liveevent.LiveEvent
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CreatePartyViewModel(
-    private val createPartyViewModelDelegateImpl: CreatePartyViewModelDelegateImpl,
+class SearchBranchesNearbyViewModel(
+    private val searchBranchesNearbyViewModelDelegateImpl: SearchBranchesNearbyViewModelDelegateImpl,
     private val selectRestaurantViewModelDelegateImpl: SelectRestaurantViewModelDelegateImpl,
+    private val branchesNearbyDelegateImpl: BranchesNearbyDelegateImpl,
     private val getBranchesByRestaurantIdUseCase: GetBranchesByRestaurantIdUseCase,
     private val coroutinesDispatcherProvider: CoroutinesDispatcherProvider
-) : ViewModel(), CreatePartyViewModelDelegate by createPartyViewModelDelegateImpl,
-    SelectRestaurantViewModelDelegate by selectRestaurantViewModelDelegateImpl {
+) : ViewModel(), SearchBranchesNearbyViewModelDelegate by searchBranchesNearbyViewModelDelegateImpl,
+    SelectRestaurantViewModelDelegate by selectRestaurantViewModelDelegateImpl,
+    BranchesNearbyDelegate by branchesNearbyDelegateImpl {
 
     private val _onNavigateToSelectRestaurant = LiveEvent<RestaurantId>()
     val onNavigateToSelectRestaurant: LiveData<RestaurantId>
@@ -34,9 +38,14 @@ class CreatePartyViewModel(
     val isIncompleteDataEvent: LiveEvent<Unit>
         get() = _isIncompleteDataEvent
 
+    private val _calculateBranchesNearbySuccessEvent = LiveEvent<Unit>()
+    val calculateBranchesNearbySuccessEvent: LiveData<Unit>
+        get() = _calculateBranchesNearbySuccessEvent
+
     init {
         setFriends(listOf())
         setRestaurantSelected(null)
+        setBranches(listOf())
     }
 
     fun navigateToSelectRestaurant() {
@@ -80,5 +89,9 @@ class CreatePartyViewModel(
             }
             branchDistance.add(BranchDistance(branch, totalDistance))
         }
+        setBranches(branchDistance.toList().sortedBy { it.totalKm }.map {
+            it.branch
+        }.take(5))
+        _calculateBranchesNearbySuccessEvent.value = Unit
     }
 }
