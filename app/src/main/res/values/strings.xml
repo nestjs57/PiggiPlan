@@ -37,6 +37,10 @@
     <string name="branch_detail_nearby_away_from_branch_m">ห่างจากสาขานี้ %1$s m.</string>
     <string name="branch_detail_nearby_away_from_branch_km">ห่างจากสาขานี้ %1$s km</string>
 
+    <string name="my_favorite_confirm_dialog_delete_all_favorite_description">ต้องการลบรายการที่บันทึกทั้งหมดใช้หรือไม่ ?</string>
+    <string name="my_favorite_title">สาขาที่บันทึกไว้</string>
+    <string name="my_favorite_branch_saved_not_found">ไมีมีสาขาที่คุณบันทึกไว้</string>
+
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>
     <string name="action_confirm">ตกลง</string>

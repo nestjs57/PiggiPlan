@@ -16,4 +16,7 @@ abstract class FavoriteDao : BaseDao<FavoriteEntity>() {
 
     @Query("DELETE FROM favorite WHERE branch_id = :branchId")
     abstract suspend fun deleteByBranchId(branchId: BranchId)
+
+    @Query("DELETE FROM favorite")
+    abstract suspend fun clearAll()
 }

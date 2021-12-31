@@ -5,7 +5,7 @@
     tools:context=".ui.create.SearchBranchesNearbyFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/branchItemLayout"
+        android:id="@+id/favoriteItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
