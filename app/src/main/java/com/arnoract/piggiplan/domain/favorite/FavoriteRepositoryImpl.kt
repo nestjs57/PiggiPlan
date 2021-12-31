@@ -30,4 +30,8 @@ class FavoriteRepositoryImpl(
     override suspend fun getIsFavorite(branchId: BranchId): Boolean {
         return favoriteDao.findAll().any { it.branchId == branchId }
     }
+
+    override suspend fun clear() {
+        favoriteDao.clearAll()
+    }
 }

@@ -8,4 +8,5 @@ interface FavoriteRepository {
     fun getFavorites(): Flow<List<Favorite>>
     suspend fun updateFavorite(branchId: BranchId)
     suspend fun getIsFavorite(branchId: BranchId): Boolean
+    suspend fun clear()
 }

@@ -13,6 +13,7 @@ object UiComponent {
             selectAddressModule,
             branchesNearbyModule,
             branchDetailModule,
+            favoriteModule,
         )
     )
 }

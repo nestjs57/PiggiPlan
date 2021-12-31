@@ -25,4 +25,10 @@ class BranchRepositoryImpl(
     override suspend fun getBranchByBranchId(branchId: BranchId): Branch {
         return BranchEntityToBranchMapper.map(branchDao.findByBranchId(branchId))
     }
+
+    override suspend fun getBranches(): List<Branch> {
+        return branchDao.findAll().map {
+            BranchEntityToBranchMapper.map(it)
+        }
+    }
 }
