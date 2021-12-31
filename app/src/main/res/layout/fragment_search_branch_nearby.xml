@@ -46,23 +46,47 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:src="@drawable/ic_plus"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/nameTitleTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/nameTitleTextView" />
+                    app:layout_constraintTop_toTopOf="@+id/nameTitleTextView"
+                    app:tint="@color/gray700"
+                    tools:visibility="visible" />
 
-                <LinearLayout
-                    android:id="@+id/friendAddressView"
+                <ViewFlipper
+                    android:id="@+id/friendViewFlipper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/space_large"
-                    android:orientation="vertical"
-                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameTitleTextView"
-                    tools:background="@color/gray300"
-                    tools:layout_height="100dp"
-                    tools:visibility="visible" />
+                    app:layout_constraintTop_toBottomOf="@+id/editFriendImageButton">
+
+                    <LinearLayout
+                        android:id="@+id/friendAddressView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/space_large"
+                        android:orientation="vertical"
+                        tools:background="@color/gray300"
+                        tools:layout_height="100dp" />
+
+                    <TextView
+                        android:id="@+id/addFriendTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_large"
+                        android:layout_marginTop="@dimen/space_normal"
+                        android:background="@drawable/bg_white_border_grey300_corner_5"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/space_normal"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:paddingHorizontal="@dimen/space_larger"
+                        android:paddingVertical="@dimen/space_normal"
+                        android:text="@string/create_party_action_add_name_label"
+                        app:drawableStartCompat="@drawable/ic_plus"
+                        app:drawableTint="@color/gray500" />
+
+                </ViewFlipper>
 
                 <TextView
                     android:id="@+id/restaurantTitleTextView"
@@ -75,34 +99,45 @@
                     android:textSize="@dimen/text_headline"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/friendAddressView" />
+                    app:layout_constraintTop_toBottomOf="@+id/friendViewFlipper" />
 
-                <ImageButton
-                    android:id="@+id/selectRestaurantImageButton"
-                    android:layout_width="30dp"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="@dimen/space_large"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:src="@drawable/ic_plus"
-                    app:layout_constraintBottom_toBottomOf="@+id/restaurantTitleTextView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/restaurantTitleTextView" />
-
-                <TextView
-                    android:id="@+id/restaurantNameTitleTextView"
-                    android:layout_width="wrap_content"
+                <ViewFlipper
+                    android:id="@+id/restaurantViewFlipper"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/space_large"
-                    android:layout_marginTop="@dimen/space_normal"
-                    android:textColor="@color/purple_500"
-                    android:textSize="@dimen/text_headline"
-                    android:textStyle="bold"
-                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/restaurantTitleTextView"
-                    tools:text="ตี๋น้อย ทุกสาขา"
-                    tools:visibility="visible" />
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantTitleTextView">
+
+                    <TextView
+                        android:id="@+id/restaurantNameTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_large"
+                        android:layout_marginTop="@dimen/space_normal"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:textColor="@color/purple_500"
+                        android:textSize="@dimen/text_headline"
+                        android:textStyle="bold"
+                        tools:text="ตี๋น้อย ทุกสาขา" />
+
+                    <TextView
+                        android:id="@+id/selectRestaurantTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_large"
+                        android:layout_marginTop="@dimen/space_normal"
+                        android:background="@drawable/bg_white_border_grey300_corner_5"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/space_normal"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:paddingHorizontal="@dimen/space_larger"
+                        android:paddingVertical="@dimen/space_normal"
+                        android:text="@string/create_party_action_select_restaurant_label"
+                        app:drawableStartCompat="@drawable/ic_plus"
+                        app:drawableTint="@color/gray500" />
+
+                </ViewFlipper>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

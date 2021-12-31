@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.ui.create
 
+import android.graphics.Paint
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.arnoract.piggiplan.R
@@ -25,7 +26,7 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
         binding.editFriendImageButton.setDebounceOnClickListener {
             navigateToEditFriendFragment(0L)
         }
-        binding.selectRestaurantImageButton.setDebounceOnClickListener {
+        binding.selectRestaurantTextView.setDebounceOnClickListener {
             navigateToSelectRestaurantFragment(0L)
         }
         binding.restaurantNameTitleTextView.setDebounceOnClickListener {
@@ -34,12 +35,21 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
         binding.searchRestaurantButton.setDebounceOnClickListener {
             mViewModel.searchRestaurantNearByFriends()
         }
+        binding.addFriendTextView.setDebounceOnClickListener {
+            navigateToEditFriendFragment(0L)
+        }
     }
 
     override fun observeViewModel() {
         mViewModel.friends.observe(viewLifecycleOwner) { friends ->
-            binding.friendAddressView.visibility =
-                if (friends.isNotEmpty()) View.VISIBLE else View.GONE
+            if (friends.isNotEmpty()) {
+                binding.editFriendImageButton.visibility = View.VISIBLE
+                binding.friendViewFlipper.displayedChild = 0
+            } else {
+                binding.editFriendImageButton.visibility = View.INVISIBLE
+                binding.friendViewFlipper.displayedChild = 1
+            }
+
             binding.friendAddressView.removeAllViews()
             friends.forEach {
                 val v = FriendAddressItemView(requireContext())
@@ -49,13 +59,14 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
             }
         }
         mViewModel.restaurantSelected.observe(viewLifecycleOwner) {
-            if (it == null) {
-                binding.restaurantNameTitleTextView.visibility = View.GONE
-                binding.selectRestaurantImageButton.visibility = View.VISIBLE
+            if (it != null) {
+                binding.restaurantViewFlipper.displayedChild = 0
+                binding.restaurantNameTitleTextView.apply {
+                    text = it.name
+                    paintFlags = this.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+                }
             } else {
-                binding.restaurantNameTitleTextView.visibility = View.VISIBLE
-                binding.selectRestaurantImageButton.visibility = View.GONE
-                binding.restaurantNameTitleTextView.text = it.name
+                binding.restaurantViewFlipper.displayedChild = 1
             }
         }
         mViewModel.onNavigateToSelectRestaurant.observe(viewLifecycleOwner) {
