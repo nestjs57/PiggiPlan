@@ -51,4 +51,8 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
             BranchesNearbyFragmentDirections.actionBranchesNearbyFragmentToBranchesDetailFragment(id)
         findNavControllerSafety(R.id.branchesNearbyFragment)?.navigate(action)
     }
+
+    override fun onFavoriteClick(branchId: BranchId) {
+        mViewModel.updateFavorite(branchId)
+    }
 }

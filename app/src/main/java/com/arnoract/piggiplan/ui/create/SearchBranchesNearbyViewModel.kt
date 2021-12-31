@@ -64,12 +64,12 @@ class SearchBranchesNearbyViewModel(
                         )
                 }
                 val friends = getFriends()
-                calculateBranchesNearByFriends(friends, branches)
+                calculateBranchesNearbyFriends(friends, branches)
             }
         }
     }
 
-    private fun calculateBranchesNearByFriends(
+    private fun calculateBranchesNearbyFriends(
         friends: List<UiFriendAddress>?,
         branches: List<Branch>
     ) {

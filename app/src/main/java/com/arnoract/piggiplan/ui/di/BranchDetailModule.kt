@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val branchDetailModule = module {
     viewModel { (branchId: BranchId) ->
-        BranchDetailViewModel(branchId, get(), get())
+        BranchDetailViewModel(branchId, get(), get(), get(), get())
     }
     viewModel { (branchId: BranchId) ->
         BranchDetailInformationViewModel(branchId, get(), get())

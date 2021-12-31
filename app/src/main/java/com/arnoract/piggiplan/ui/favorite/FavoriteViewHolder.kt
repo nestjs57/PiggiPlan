@@ -1,4 +1,4 @@
-package com.arnoract.piggiplan.ui.branch
+package com.arnoract.piggiplan.ui.favorite
 
 import android.view.ViewGroup
 import com.arnoract.piggiplan.R
@@ -6,20 +6,20 @@ import com.arnoract.piggiplan.base.inflater
 import com.arnoract.piggiplan.base.recyclerview.ItemViewHolder
 import com.arnoract.piggiplan.core.db.model.branch.BranchId
 import com.arnoract.piggiplan.databinding.ViewItemBranchNearByBinding
-import com.arnoract.piggiplan.ui.branch.model.UiBranchNearby
+import com.arnoract.piggiplan.ui.favorite.model.UiFavorite
 import com.bumptech.glide.Glide
 
-class BranchesNearbyViewHolder(
+class FavoriteViewHolder(
     private val binding: ViewItemBranchNearByBinding,
     private val mListener: OnBranchItemClickListener
-) : ItemViewHolder<UiBranchNearby>(binding.root) {
+) : ItemViewHolder<UiFavorite>(binding.root) {
 
     companion object {
         fun create(
             parent: ViewGroup,
             listener: OnBranchItemClickListener,
-        ): ItemViewHolder<UiBranchNearby> {
-            return BranchesNearbyViewHolder(
+        ): ItemViewHolder<UiFavorite> {
+            return FavoriteViewHolder(
                 ViewItemBranchNearByBinding.inflate(
                     parent.inflater(),
                     parent,
@@ -29,7 +29,7 @@ class BranchesNearbyViewHolder(
         }
     }
 
-    private var mData: UiBranchNearby? = null
+    private var mData: UiFavorite? = null
 
     init {
         binding.branchItemLayout.setOnClickListener {
@@ -44,7 +44,7 @@ class BranchesNearbyViewHolder(
         }
     }
 
-    override fun fillData(data: UiBranchNearby?, position: Int) {
+    override fun fillData(data: UiFavorite?, position: Int) {
         mData = data
         data?.let {
             fillBranchName(it)
@@ -54,20 +54,20 @@ class BranchesNearbyViewHolder(
         }
     }
 
-    private fun fillFavorite(it: UiBranchNearby) {
+    private fun fillFavorite(it: UiFavorite) {
         val drawable = if (it.isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border
         binding.favoriteImageButton.setImageResource(drawable)
     }
 
-    private fun fillBranchName(it: UiBranchNearby) {
+    private fun fillBranchName(it: UiFavorite) {
         binding.branchNameTextView.text = it.branchName
     }
 
-    private fun fillDescription(it: UiBranchNearby) {
+    private fun fillDescription(it: UiFavorite) {
         binding.branchDescriptionTextview.text = it.description
     }
 
-    private fun fillImage(data: UiBranchNearby) {
+    private fun fillImage(data: UiFavorite) {
         binding.photoImageView.apply {
             Glide
                 .with(this.context)
