@@ -96,7 +96,7 @@
         android:id="@+id/selectAddressFragment"
         android:name="com.arnoract.piggiplan.ui.create.SelectAddressFragment"
         android:label="SelectAddressFragment"
-        tools:layout="@layout/fragment_select_address"></fragment>
+        tools:layout="@layout/fragment_select_address" />
 
     <fragment
         android:id="@+id/selectRestaurantFragment"
@@ -118,6 +118,13 @@
         <action
             android:id="@+id/action_branchesNearbyFragment_to_branchesDetailFragment"
             app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_branchNearbyFragment_to_summaryFramgnet"
+            app:destination="@id/summaryFragment"
             app:enterAnim="@anim/slide_left"
             app:exitAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
@@ -153,7 +160,12 @@
             app:enterAnim="@anim/slide_left"
             app:exitAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
-
     </fragment>
+
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.arnoract.piggiplan.ui.summary.SummaryFragment"
+        android:label="SummaryFragment"
+        tools:layout="@layout/fragment_summary" />
 
 </navigation>

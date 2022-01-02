@@ -14,6 +14,7 @@ object UiComponent {
             branchesNearbyModule,
             branchDetailModule,
             favoriteModule,
+            summaryModule,
         )
     )
 }

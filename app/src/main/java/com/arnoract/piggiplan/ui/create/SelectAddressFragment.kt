@@ -2,7 +2,6 @@ package com.arnoract.piggiplan.ui.create
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
@@ -11,13 +10,12 @@ import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
 import com.arnoract.piggiplan.databinding.FragmentSelectAddressBinding
-import com.google.android.gms.maps.CameraUpdateFactory
+import com.arnoract.piggiplan.util.updateCameraLatLngZoom
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolygonOptions
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
@@ -90,25 +88,14 @@ class SelectAddressFragment : BaseFragment(R.layout.fragment_select_address) {
     }
 
     private fun addMarker(latLng: LatLng?) {
-        val polygon = mMap.addPolygon(PolygonOptions()
-            .add(latLng)
-        .strokeColor(Color.RED)
-            .fillColor(Color.BLUE))
         mMap.addMarker(
             MarkerOptions().position(latLng ?: LatLng(0.0, 0.0))
         )
     }
 
-    private fun moveCamera(latLng: LatLng?, zoomLevel: Float = 12.0f) {
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(
-                LatLng(
-                    latLng?.latitude ?: 0.0,
-                    latLng?.longitude ?: 0.0
-                ), zoomLevel
-            )
-        )
+    private fun moveCamera(latLng: LatLng?) {
+        val cameraUpdate = updateCameraLatLngZoom(latLng, 12.0f)
+        mMap.animateCamera(cameraUpdate)
     }
 
     private fun clearMarker() {

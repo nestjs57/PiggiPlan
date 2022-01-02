@@ -25,6 +25,11 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
         }
+        binding.summaryImageButton.setDebounceOnClickListener {
+            val action =
+                BranchesNearbyFragmentDirections.actionBranchNearbyFragmentToSummaryFramgnet()
+            findNavControllerSafety(R.id.branchesNearbyFragment)?.navigate(action)
+        }
     }
 
     private fun setUpRecyclerView() {
