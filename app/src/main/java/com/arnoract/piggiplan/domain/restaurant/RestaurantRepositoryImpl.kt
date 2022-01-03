@@ -1,6 +1,7 @@
 package com.arnoract.piggiplan.domain.restaurant
 
 import com.arnoract.piggiplan.core.db.model.restaurant.RestaurantDao
+import com.arnoract.piggiplan.core.db.model.restaurant.RestaurantId
 import com.arnoract.piggiplan.domain.model.restaurant.Restaurant
 import com.arnoract.piggiplan.domain.model.restaurant.mapper.RestaurantToRestaurantEntityMapper
 import com.arnoract.piggiplan.domain.restaurant.mapper.RestaurantEntityToRestaurantMapper
@@ -18,5 +19,9 @@ class RestaurantRepositoryImpl(
         return restaurantDao.findAll().map {
             RestaurantEntityToRestaurantMapper.map(it)
         }
+    }
+
+    override suspend fun getRestaurantById(restaurantId: RestaurantId): Restaurant {
+        return RestaurantEntityToRestaurantMapper.map(restaurantDao.findRestaurantById(restaurantId))
     }
 }

@@ -10,4 +10,6 @@ val databaseModule = module {
     single { DaoBuilder(get()).getRestaurantDao() }
     single { DaoBuilder(get()).getBranchDao() }
     single { DaoBuilder(get()).getFavoriteDao() }
+    single { DaoBuilder(get()).getHistoryDao() }
+    single { DaoBuilder(get()).getFriendHistoryDao() }
 }

@@ -8,7 +8,19 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val searchBranchNearby = module {
-    viewModel { SearchBranchesNearbyViewModel(get(), get(), get(), get(), get()) }
+    viewModel { (historyId: String) ->
+        SearchBranchesNearbyViewModel(
+            historyId,
+            get(),
+            get(),
+            get(),
+            get(),
+            get(),
+            get(),
+            get(),
+            get()
+        )
+    }
     viewModel { SelectAddressViewModel(get()) }
     single { SearchBranchesNearbyViewModelDelegateImpl() }
     single { SelectAddressViewModelDelegateImpl() }

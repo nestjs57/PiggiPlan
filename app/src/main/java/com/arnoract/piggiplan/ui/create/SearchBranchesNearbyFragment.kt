@@ -2,26 +2,40 @@ package com.arnoract.piggiplan.ui.create
 
 import android.graphics.Paint
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.arnoract.piggiplan.R
 import com.arnoract.piggiplan.base.BaseFragment
 import com.arnoract.piggiplan.base.viewBinding
 import com.arnoract.piggiplan.core.findNavControllerSafety
 import com.arnoract.piggiplan.core.setDebounceOnClickListener
+import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentSearchBranchNearbyBinding
 import com.arnoract.piggiplan.ui.custom.FriendAddressItemView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branch_nearby),
     FriendAddressItemView.OnFriendAddressItemListener {
 
     private val binding by viewBinding(FragmentSearchBranchNearbyBinding::bind)
-    private val mViewModel: SearchBranchesNearbyViewModel by viewModel()
+    private val args: SearchBranchesNearbyFragmentArgs by navArgs()
+    private val mViewModel: SearchBranchesNearbyViewModel by viewModel {
+        parametersOf(args.id)
+    }
 
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
+        }
+        binding.toolbarLayout.drawableEndImageButton.apply {
+            setImageResource(R.drawable.ic_save)
+            visibility = View.VISIBLE
+        }
+        binding.toolbarLayout.drawableEndImageButton.setDebounceOnClickListener {
+            mViewModel.saveSearchBranchNearbyHistory()
         }
         binding.editFriendImageButton.setDebounceOnClickListener {
             navigateToEditFriendFragment(0L)
@@ -82,6 +96,12 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
         }
         mViewModel.calculateBranchesNearbySuccessEvent.observe(viewLifecycleOwner) {
             navigateToBranchesNearByFragment()
+        }
+        mViewModel.getSearchBranchNearbyHistorySuccessEvent.observe(viewLifecycleOwner) {
+            requireContext().toast(
+                getString(R.string.create_party_save_branch_nearby_history_success),
+                length = Toast.LENGTH_SHORT
+            )
         }
     }
 
