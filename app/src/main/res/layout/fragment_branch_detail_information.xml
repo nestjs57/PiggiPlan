@@ -42,8 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/branchCardView"
             app:layout_constraintTop_toTopOf="@+id/branchCardView"
-            tools:text="เลียบด่วน
-เอกมัย รามอินทรา" />
+            tools:text="เลียบด่วนเอกมัย รามอินทรา" />
 
         <TextView
             android:id="@+id/branchDescription"
@@ -54,8 +53,7 @@
             app:layout_constraintEnd_toEndOf="@+id/branchNameTextView"
             app:layout_constraintStart_toStartOf="@+id/branchNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/branchNameTextView"
-            tools:text="อยู่ฝั่งเดียวกับเซ็ลทรัลอัสต์วิลล์ ก่อน
-ถึงปั้มบาง จาก หลังร้าน76" />
+            tools:text="อยู่ฝั่งเดียวกับเซ็ลทรัลอัสต์วิลล์ ก่อน ถึงปั้มบาง จาก หลังร้าน76" />
 
         <ImageView
             android:id="@+id/mobileImageView"

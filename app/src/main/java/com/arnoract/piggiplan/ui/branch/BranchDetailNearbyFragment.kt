@@ -33,11 +33,7 @@ class BranchDetailNearbyFragment : BaseFragment(R.layout.fragment_branch_detail_
         }
     }
 
-    override fun setUpView() {
-        setUpRecyclerView()
-    }
-
-    private fun setUpRecyclerView() {
+    override fun setUpRecyclerView() {
         _mAdapter = BranchDetailNearbyAdapter(this)
         binding.branchesNearbyRecyclerView.layoutManager = LinearLayoutManager(
             requireContext()

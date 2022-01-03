@@ -21,7 +21,6 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
         get() = _mAdapter!!
 
     override fun setUpView() {
-        setUpRecyclerView()
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
         }
@@ -32,7 +31,7 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
         }
     }
 
-    private fun setUpRecyclerView() {
+    override fun setUpRecyclerView() {
         _mAdapter = BranchesNearbyAdapter(this)
         binding.branchesRecyclerView.layoutManager = LinearLayoutManager(
             requireContext()

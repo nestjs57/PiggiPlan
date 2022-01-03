@@ -31,7 +31,6 @@ class SelectRestaurantFragment : BaseFragment(R.layout.fragment_select_restauran
         get() = _mAdapter!!
 
     override fun setUpView() {
-        setUpRecyclerView()
         binding.toolbarLayout.backImageButton.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -41,7 +40,7 @@ class SelectRestaurantFragment : BaseFragment(R.layout.fragment_select_restauran
         }
     }
 
-    private fun setUpRecyclerView() {
+    override fun setUpRecyclerView() {
         _mAdapter = RestaurantAdapter(this)
         binding.restaurantRecyclerView.layoutManager =
             GridLayoutManager(context, RESTAURANT_SPAN_COUNT)

@@ -166,6 +166,14 @@
         android:id="@+id/summaryFragment"
         android:name="com.arnoract.piggiplan.ui.summary.SummaryFragment"
         android:label="SummaryFragment"
-        tools:layout="@layout/fragment_summary" />
+        tools:layout="@layout/fragment_summary">
+
+        <action
+            android:id="@+id/action_summaryFragment_to_branchesDetailFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
 
 </navigation>

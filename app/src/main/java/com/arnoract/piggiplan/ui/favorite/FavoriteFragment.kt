@@ -23,7 +23,6 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite),
         get() = _mAdapter!!
 
     override fun setUpView() {
-        setUpRecyclerView()
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
         }
@@ -36,7 +35,7 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite),
         }
     }
 
-    private fun setUpRecyclerView() {
+    override fun setUpRecyclerView() {
         _mAdapter = FavoriteAdapter(this)
         binding.favoriteRecyclerView.layoutManager = LinearLayoutManager(
             requireContext()

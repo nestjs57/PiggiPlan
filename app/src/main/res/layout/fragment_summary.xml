@@ -28,16 +28,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="+"
-            android:textColor="@color/white"
-            android:layout_marginBottom="@dimen/space_smaller"
-            android:textStyle="bold" />
+        <com.github.rubensousa.gravitysnaphelper.GravitySnapRecyclerView
+            android:id="@+id/branchRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_large"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/space_larger"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/allBoundsActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:src="@drawable/ic_team"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/branchRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
 
