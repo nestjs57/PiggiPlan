@@ -8,7 +8,6 @@ import com.arnoract.piggiplan.core.CoroutinesDispatcherProvider
 import com.arnoract.piggiplan.core.successOrThrow
 import com.arnoract.piggiplan.domain.launchscreen.InitialFetchUseCase
 import com.hadilq.liveevent.LiveEvent
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -32,7 +31,6 @@ class LaunchScreenViewModel(
                 withContext(coroutinesDispatcherProvider.io) {
                     initialFetchUseCase.invoke(Unit).successOrThrow()
                 }
-                delay(3000)
                 _navigateToHomePageEvent.value = Unit
             } catch (e: Exception) {
                 _initialFetchDataFailEvent.value = e.message ?: "Unknown Error"

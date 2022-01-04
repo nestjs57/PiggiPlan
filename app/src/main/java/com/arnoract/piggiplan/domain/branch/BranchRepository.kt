@@ -9,4 +9,5 @@ interface BranchRepository {
     suspend fun getBranchesByRestaurantId(restaurantId: RestaurantId): List<Branch>
     suspend fun getBranchByBranchId(branchId: BranchId): Branch
     suspend fun getBranches(): List<Branch>
+    suspend fun fetchBranches()
 }
