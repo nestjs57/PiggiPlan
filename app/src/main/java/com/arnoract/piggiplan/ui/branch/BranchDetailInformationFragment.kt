@@ -120,7 +120,7 @@ class BranchDetailInformationFragment : BaseFragment(R.layout.fragment_branch_de
                             }
 
                             override fun updateDrawState(ds: TextPaint) {
-                                ds.color = requireContext().getColor(R.color.purple_700)
+                                ds.color = requireContext().getColor(R.color.primary_red)
                                 ds.isUnderlineText = true
                             }
                         },
@@ -140,7 +140,7 @@ class BranchDetailInformationFragment : BaseFragment(R.layout.fragment_branch_de
                     }
 
                     override fun updateDrawState(ds: TextPaint) {
-                        ds.color = requireContext().getColor(R.color.purple_700)
+                        ds.color = requireContext().getColor(R.color.primary_red)
                         ds.isUnderlineText = true
                     }
                 },

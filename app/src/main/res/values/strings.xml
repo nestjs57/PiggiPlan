@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">PiggiPlan</string>
-    <string name="app_name_upper_case_with_space">PIGGI PLAN</string>
-    <string name="app_name_description">กินไรดี เจอกันคนละครึ่งทาง</string>
+    <string name="app_name">Tangti Tee Noi</string>
+    <string name="app_name_upper_case_with_space">TANGTI TEE NOI</string>
+    <string name="app_name_description">ตั้งตี้ กินตี๋น้อย</string>
 
-    <string name="home_empty_state_title_label">ยังไม่เคยมีรายการที่คุณค้นหา</string>
-    <string name="home_empty_state_description_label">เริ่มค้นหารายการร้านอาหารที่ใกล้ทุกคนที่สุดเลย</string>
+    <string name="home_empty_state_title_label">คุณยังไม่เคยค้นหา</string>
+    <string name="home_empty_state_description_label">กดเพื่อเริ่มค้นหาสาขาที่ใกล้ทุกคนที่สุดเลย</string>
     <string name="home_empty_state_search_branches_nearby_action_label">เริ่มค้นหา</string>
+    <string name="home_last_data_history_title_label">รายการที่บันทึก</string>
 
     <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
     <string name="create_party_action_add_name_label">เพิ่มเพื่อน</string>

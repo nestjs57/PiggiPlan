@@ -59,7 +59,7 @@
         android:layout_marginTop="@dimen/space_smaller"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/primary_red"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/branchDescriptionTextview"
         app:layout_constraintStart_toStartOf="@+id/branchDescriptionTextview"

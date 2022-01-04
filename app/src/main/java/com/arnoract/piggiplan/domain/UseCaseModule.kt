@@ -9,6 +9,7 @@ import com.arnoract.piggiplan.domain.favorite.GetIsFavoriteUseCase
 import com.arnoract.piggiplan.domain.favorite.ObserveFavoritesUseCase
 import com.arnoract.piggiplan.domain.favorite.UpdateFavoriteUseCase
 import com.arnoract.piggiplan.domain.history.GetSearchBranchNearbyHistoryUseCase
+import com.arnoract.piggiplan.domain.history.ObserveHistoriesUseCase
 import com.arnoract.piggiplan.domain.history.SaveSearchBranchNearbyHistoryUseCase
 import com.arnoract.piggiplan.domain.launchscreen.InitialFetchUseCase
 import com.arnoract.piggiplan.domain.restaurant.GetRestaurantByIdUseCase
@@ -29,4 +30,5 @@ val useCaseModule = module {
     factory { SaveSearchBranchNearbyHistoryUseCase(get()) }
     factory { GetSearchBranchNearbyHistoryUseCase(get()) }
     factory { GetRestaurantByIdUseCase(get()) }
+    factory { ObserveHistoriesUseCase(get()) }
 }

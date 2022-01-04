@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_large"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/primary_red"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/locationImageView"
             app:layout_constraintTop_toTopOf="@+id/locationImageView"
