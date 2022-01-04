@@ -20,7 +20,7 @@
         android:id="@+id/branchNearbyTitleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_large"
+        android:layout_marginStart="@dimen/space_large"
         android:layout_marginTop="@dimen/space_large"
         android:text="@string/branch_near_by_title"
         android:textColor="@color/black"

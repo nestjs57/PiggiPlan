@@ -29,6 +29,11 @@ class BranchesNearbyFragment : BaseFragment(R.layout.fragment_branches_nearby),
                 BranchesNearbyFragmentDirections.actionBranchNearbyFragmentToSummaryFramgnet()
             findNavControllerSafety(R.id.branchesNearbyFragment)?.navigate(action)
         }
+        binding.branchNearbyTitleTextView.setDebounceOnClickListener {
+            val action =
+                BranchesNearbyFragmentDirections.actionBranchNearbyFragmentToSummaryFramgnet()
+            findNavControllerSafety(R.id.branchesNearbyFragment)?.navigate(action)
+        }
     }
 
     override fun setUpRecyclerView() {

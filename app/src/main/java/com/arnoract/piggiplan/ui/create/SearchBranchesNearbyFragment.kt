@@ -13,6 +13,10 @@ import com.arnoract.piggiplan.core.setDebounceOnClickListener
 import com.arnoract.piggiplan.core.toast
 import com.arnoract.piggiplan.databinding.FragmentSearchBranchNearbyBinding
 import com.arnoract.piggiplan.ui.custom.FriendAddressItemView
+import com.github.razir.progressbutton.attachTextChangeAnimator
+import com.github.razir.progressbutton.bindProgressButton
+import com.github.razir.progressbutton.hideProgress
+import com.github.razir.progressbutton.showProgress
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -29,6 +33,10 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
     override fun setUpView() {
         binding.toolbarLayout.backImageButton.setDebounceOnClickListener {
             findNavController().popBackStack()
+        }
+        binding.searchRestaurantButton.apply {
+            bindProgressButton(this)
+            attachTextChangeAnimator()
         }
         binding.toolbarLayout.drawableEndImageButton.apply {
             setImageResource(R.drawable.ic_save)
@@ -102,6 +110,18 @@ class SearchBranchesNearbyFragment : BaseFragment(R.layout.fragment_search_branc
                 getString(R.string.create_party_save_branch_nearby_history_success),
                 length = Toast.LENGTH_SHORT
             )
+        }
+        mViewModel.searchingBranchNearbyEvent.observe(viewLifecycleOwner) {
+            binding.searchRestaurantButton.apply {
+                if (it) {
+                    showProgress {
+                        buttonTextRes = R.string.create_party_searching_branches_progress
+                        progressColorRes = R.color.white
+                    }
+                } else {
+                    hideProgress(R.string.create_party_search_restaurant_nearby_friend_action_label)
+                }
+            }
         }
     }
 

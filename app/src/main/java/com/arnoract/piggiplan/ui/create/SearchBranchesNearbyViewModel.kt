@@ -24,6 +24,7 @@ import com.arnoract.piggiplan.ui.restaurant.model.BranchDistance
 import com.arnoract.piggiplan.ui.restaurant.model.mapper.RestaurantToUiRestaurantMapper
 import com.arnoract.piggiplan.util.getDistanceMeter
 import com.hadilq.liveevent.LiveEvent
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
@@ -58,6 +59,10 @@ class SearchBranchesNearbyViewModel(
     val getSearchBranchNearbyHistorySuccessEvent: LiveData<Unit>
         get() = _getSearchBranchNearbyHistorySuccessEvent
 
+    private val _searchingBranchNearbyEvent = LiveEvent<Boolean>()
+    val searchingBranchNearbyEvent: LiveData<Boolean>
+        get() = _searchingBranchNearbyEvent
+
     init {
         if (historyId.isNullOrBlank()) {
             setFriends(listOf())
@@ -74,7 +79,8 @@ class SearchBranchesNearbyViewModel(
                 getSearchBranchNearbyHistoryUseCase.invoke(historyId ?: "").successOr(null)
             }
             val restaurant = withContext(coroutinesDispatcherProvider.io) {
-                getRestaurantByIdUseCase.invoke(searchBranchNearbyHistory?.restaurantId ?: 0L).successOr(null)
+                getRestaurantByIdUseCase.invoke(searchBranchNearbyHistory?.restaurantId ?: 0L)
+                    .successOr(null)
             }
             val friends = searchBranchNearbyHistory?.searchBranchNearbyFriends?.map {
                 SearchBranchNearbyFriendHistoryToUiFriendAddressMapper.map(it)
@@ -111,6 +117,7 @@ class SearchBranchesNearbyViewModel(
 
     fun searchRestaurantNearByFriends() {
         viewModelScope.launch {
+            _searchingBranchNearbyEvent.value = true
             if (getRestaurantSelected()?.id == null || getFriends().isNullOrEmpty()) {
                 _isIncompleteDataEvent.value = Unit
             } else {
@@ -120,8 +127,10 @@ class SearchBranchesNearbyViewModel(
                             emptyList()
                         )
                 }
-                val friends = getFriends()
-                calculateBranchesNearbyFriends(friends, branches)
+                calculateBranchesNearbyFriends(getFriends(), branches)
+                delay(1000)
+                _searchingBranchNearbyEvent.value = false
+                _calculateBranchesNearbySuccessEvent.value = Unit
             }
         }
     }
@@ -153,6 +162,5 @@ class SearchBranchesNearbyViewModel(
         setBranches(branchDistance.toList().sortedBy { it.totalKm }.map {
             it.branch
         }.take(5))
-        _calculateBranchesNearbySuccessEvent.value = Unit
     }
 }
