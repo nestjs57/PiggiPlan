@@ -7,6 +7,14 @@ plugins {
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\keystore\\tangtiteenoi.jks')
+            storePassword '0634210057'
+            keyAlias 'admin'
+            keyPassword '0634210057'
+        }
+    }
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
@@ -24,6 +32,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.release
         }
         debug {
         }

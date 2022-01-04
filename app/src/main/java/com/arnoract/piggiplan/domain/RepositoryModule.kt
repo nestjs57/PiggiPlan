@@ -11,8 +11,8 @@ import com.arnoract.piggiplan.domain.restaurant.RestaurantRepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<RestaurantRepository> { RestaurantRepositoryImpl(get()) }
-    single<BranchRepository> { BranchRepositoryImpl(get()) }
+    single<RestaurantRepository> { RestaurantRepositoryImpl(get(), get()) }
+    single<BranchRepository> { BranchRepositoryImpl(get(), get()) }
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
     single<HistoryRepository> { HistoryRepositoryImpl(get(), get()) }
 }

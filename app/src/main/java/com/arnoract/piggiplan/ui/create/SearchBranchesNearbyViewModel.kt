@@ -129,9 +129,9 @@ class SearchBranchesNearbyViewModel(
                 }
                 calculateBranchesNearbyFriends(getFriends(), branches)
                 delay(1000)
-                _searchingBranchNearbyEvent.value = false
                 _calculateBranchesNearbySuccessEvent.value = Unit
             }
+            _searchingBranchNearbyEvent.value = false
         }
     }
 

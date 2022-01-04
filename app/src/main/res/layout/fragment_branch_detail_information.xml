@@ -49,6 +49,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/gray500"
             app:layout_constraintEnd_toEndOf="@+id/branchNameTextView"
             app:layout_constraintStart_toStartOf="@+id/branchNameTextView"
