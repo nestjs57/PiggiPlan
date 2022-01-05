@@ -14,6 +14,7 @@ import com.arnoract.piggiplan.domain.history.SaveSearchBranchNearbyHistoryUseCas
 import com.arnoract.piggiplan.domain.launchscreen.InitialFetchUseCase
 import com.arnoract.piggiplan.domain.restaurant.GetRestaurantByIdUseCase
 import com.arnoract.piggiplan.domain.restaurant.GetRestaurantsUseCase
+import com.arnoract.piggiplan.domain.tutorial.GetIsShowSearchBranchNearbyUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -31,4 +32,5 @@ val useCaseModule = module {
     factory { GetSearchBranchNearbyHistoryUseCase(get()) }
     factory { GetRestaurantByIdUseCase(get()) }
     factory { ObserveHistoriesUseCase(get()) }
+    factory { GetIsShowSearchBranchNearbyUseCase(get()) }
 }

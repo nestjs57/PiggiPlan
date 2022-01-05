@@ -1,5 +1,6 @@
 package com.arnoract.piggiplan.ui.home
 
+import android.annotation.SuppressLint
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +45,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home),
         binding.branchRecyclerView.adapter = mAdapter
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun observeViewModel() {
         mViewModel.uiBranches.observe(viewLifecycleOwner) {
             mAdapter.submitList(it)

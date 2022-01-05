@@ -161,6 +161,6 @@ class SearchBranchesNearbyViewModel(
         }
         setBranches(branchDistance.toList().sortedBy { it.totalKm }.map {
             it.branch
-        }.take(5))
+        }.take(10))
     }
 }
