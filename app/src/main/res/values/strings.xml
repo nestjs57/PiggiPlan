@@ -27,7 +27,7 @@
     <string name="create_party_select_restaurant_restaurant_title_label">ร้านอาหาร</string>
     <string name="create_party_select_restaurant_action_save_label">บันทึก</string>
 
-    <string name="branch_near_by_title">สาขาที่ใกล้เคียงทุกคนมากที่สุด 5 สาขา</string>
+    <string name="branch_near_by_title">สาขาที่ใกล้เคียงทุกคนมากที่สุด 10 สาขา</string>
 
     <string name="branch_detail_information_tab_item">ข้อมูลทั่วไป</string>
     <string name="branch_detail_nearby_tab_item">สาขาใกล้เคียง</string>
