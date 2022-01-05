@@ -3,11 +3,6 @@
     <string name="app_name_upper_case_with_space">TANGTI TEE NOI</string>
     <string name="app_name_description">ตั้งตี้ กินตี๋น้อย</string>
 
-    <string name="home_empty_state_title_label">คุณยังไม่เคยค้นหา</string>
-    <string name="home_empty_state_description_label">กดเพื่อเริ่มค้นหาสาขาที่ใกล้ทุกคนที่สุดเลย</string>
-    <string name="home_empty_state_search_branches_nearby_action_label">เริ่มค้นหา</string>
-    <string name="home_last_data_history_title_label">รายการที่บันทึก</string>
-
     <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
     <string name="create_party_action_add_name_label">เพิ่มเพื่อน</string>
     <string name="create_party_action_select_restaurant_label">เลือกร้านอาหาร</string>
@@ -45,6 +40,8 @@
     <string name="my_favorite_confirm_dialog_delete_all_favorite_description">ต้องการลบรายการที่บันทึกทั้งหมดใช้หรือไม่ ?</string>
     <string name="my_favorite_title">สาขาที่บันทึกไว้</string>
     <string name="my_favorite_branch_saved_not_found">ไมีมีสาขาที่คุณบันทึกไว้</string>
+
+    <string name="home_search_branch_hint">ค้นหาสาขา …</string>
 
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>

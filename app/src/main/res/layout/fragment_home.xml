@@ -10,7 +10,7 @@
         android:background="@color/white">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/toolbarLayout"
             android:layout_width="0dp"
             android:layout_height="@dimen/action_toolbar_height"
             android:background="@color/white"
@@ -44,30 +44,48 @@
 
         </LinearLayout>
 
-        <ViewFlipper
-            android:id="@+id/viewFlipper"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchBranchNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_large"
+            android:background="@drawable/bg_gray300_corner_3dp_radius_24dp"
+            android:drawableStart="@drawable/chuck_ic_search_white_24dp"
+            android:drawablePadding="@dimen/space_normal"
+            android:drawableTint="@color/black"
+            android:hint="@string/home_search_branch_hint"
+            android:imeOptions="actionDone"
+            android:padding="@dimen/space_normal_12dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/branchRecyclerView"
+            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/searchBranchNameEditText"
+            tools:listitem="@layout/view_item_branch" />
 
-            <include
-                android:id="@+id/emptyStateLayout"
-                layout="@layout/empty_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/searchBranchNearbyActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:src="@drawable/ic_plus"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_goneMarginEnd="@dimen/space_large" />
 
-            <include
-                android:id="@+id/editBranchNearbyLayout"
-                layout="@layout/list_party_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/space_large" />
-
-        </ViewFlipper>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

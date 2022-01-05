@@ -135,4 +135,5 @@ dependencies {
     implementation 'com.snakydesign.livedataextensions:lives:2.0.0'
     implementation 'com.github.rubensousa:gravitysnaphelper:2.2.2'
     implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
+    implementation 'com.github.takusemba:spotlight:2.0.5'
 }
