@@ -25,6 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/space_large"
             android:layout_marginTop="@dimen/space_normal"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">

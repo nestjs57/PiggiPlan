@@ -45,7 +45,7 @@
                     android:layout_marginEnd="@dimen/space_large"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
-                    android:src="@drawable/ic_plus"
+                    android:src="@drawable/ic_plus_circle"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/nameTitleTextView"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                         android:paddingHorizontal="@dimen/space_larger"
                         android:paddingVertical="@dimen/space_normal"
                         android:text="@string/create_party_action_add_name_label"
-                        app:drawableStartCompat="@drawable/ic_plus"
+                        app:drawableStartCompat="@drawable/ic_plus_circle"
                         app:drawableTint="@color/gray500" />
 
                 </ViewFlipper>
@@ -134,7 +134,7 @@
                         android:paddingHorizontal="@dimen/space_larger"
                         android:paddingVertical="@dimen/space_normal"
                         android:text="@string/create_party_action_select_restaurant_label"
-                        app:drawableStartCompat="@drawable/ic_plus"
+                        app:drawableStartCompat="@drawable/ic_plus_circle"
                         app:drawableTint="@color/gray500" />
 
                 </ViewFlipper>
