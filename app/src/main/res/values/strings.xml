@@ -1,3 +1,50 @@
 <resources>
-    <string name="app_name">PiggiPlan</string>
+    <string name="app_name">Tangti Tee Noi</string>
+    <string name="app_name_upper_case_with_space">TANGTI TEE NOI</string>
+    <string name="app_name_description">ตั้งตี้ กินตี๋น้อย</string>
+
+    <string name="create_party_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
+    <string name="create_party_action_add_name_label">เพิ่มเพื่อน</string>
+    <string name="create_party_action_select_restaurant_label">เลือกร้านอาหาร</string>
+    <string name="create_party_restaurant_title_label">ร้านอาหาร</string>
+    <string name="create_party_incomplete_data_dialog_description">ข้อมูลไม่เพียงพอ\nไม่มีข้อมูลเพื่อนหรือไม่ได้เลือกร้านอาหาร</string>
+    <string name="create_party_search_restaurant_nearby_friend_action_label">ค้นหาร้านที่ใกล้ทุกคนที่สุด</string>
+    <string name="create_party_save_branch_nearby_history_success">บันทึกเรียบร้อย</string>
+    <string name="create_party_searching_branches_progress">กำลังค้นหา</string>
+
+    <string name="create_party_edit_friend_name_title_label">ชื่อ ที่อยู่ของเพื่อน</string>
+    <string name="create_party_edit_friend_name_hint">กรอกชื่อ…</string>
+    <string name="create_party_edit_friend_action_select_address_label"><u>เลือกที่อยู่</u></string>
+    <string name="create_party_edit_friend_action_save_label">บันทึก</string>
+    <string name="create_party_edit_friend_blank_name_error">กรุณากรอกชื่อ</string>
+    <string name="create_party_delete_friend_confirm_dialog_description">ต้องการลบรายการชื่อที่อยู่ของเพื่อนคนนี้หรือไม่ ?</string>
+
+    <string name="create_party_select_address_title_label">ค้นหาสถานที่…</string>
+    <string name="create_party_select_address_action_save_label">เลือกที่อยู่นี้</string>
+    <string name="create_party_select_address_blank_address_name_label">ไม่มีชื่อที่อยู่</string>
+    <string name="create_party_select_address_find_location_not_found_error">ไม่พบที่อยู่ตำแหน่งที่ค้นหา</string>
+
+    <string name="create_party_select_restaurant_restaurant_title_label">ร้านอาหาร</string>
+    <string name="create_party_select_restaurant_action_save_label">บันทึก</string>
+
+    <string name="branch_near_by_title">สาขาที่ใกล้เคียงทุกคนมากที่สุด 10 สาขา</string>
+
+    <string name="branch_detail_information_tab_item">ข้อมูลทั่วไป</string>
+    <string name="branch_detail_nearby_tab_item">สาขาใกล้เคียง</string>
+
+    <string name="branch_detail_information_action_make_a_call">กดเพื่อโทรออก</string>
+    <string name="branch_detail_information_action_open_google_map">เปิด GoogleMap เพื่อนำทาง</string>
+    <string name="branch_detail_nearby_away_from_branch_m">ห่างจากสาขานี้ %1$s m.</string>
+    <string name="branch_detail_nearby_away_from_branch_km">ห่างจากสาขานี้ %1$s km</string>
+
+    <string name="my_favorite_confirm_dialog_delete_all_favorite_description">ต้องการลบรายการที่บันทึกทั้งหมดใช้หรือไม่ ?</string>
+    <string name="my_favorite_title">สาขาที่บันทึกไว้</string>
+    <string name="my_favorite_branch_saved_not_found">ไมีมีสาขาที่คุณบันทึกไว้</string>
+
+    <string name="home_search_branch_hint">ค้นหาสาขา …</string>
+    <string name="home_search_branch_not_found">ไม่เจอผลลัพธ์</string>
+
+    <string name="action_cancel">ยกเลิก</string>
+    <string name="action_back">ย้อนกลับ</string>
+    <string name="action_confirm">ตกลง</string>
 </resources>

@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/launchScreenFragment">
+
+    <fragment
+        android:id="@+id/launchScreenFragment"
+        android:name="com.arnoract.piggiplan.ui.login.LaunchScreenFragment"
+        android:label="LaunchScreenFragment"
+        tools:layout="@layout/fragment_launch_screen">
+
+        <action
+            android:id="@+id/action_launchScreenFragment_to_HomeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.arnoract.piggiplan.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_SearchBranchesNearbyFragment"
+            app:destination="@id/searchBranchesNearbyFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_branchDetailFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchBranchesNearbyFragment"
+        android:name="com.arnoract.piggiplan.ui.create.SearchBranchesNearbyFragment"
+        android:label="SearchBranchesNearbyFragment"
+        tools:layout="@layout/fragment_search_branch_nearby">
+
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue=""/>
+
+        <action
+            android:id="@+id/action_searchBranchesNearbyFragment_to_EditFriendFragment"
+            app:destination="@id/editFriendFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_searchBranchesNearbyFragment_to_SelectRestaurantFragment"
+            app:destination="@id/selectRestaurantFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_searchBranchesNearbyFragment_to_BranchesNearbyFragment"
+            app:destination="@id/branchesNearbyFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editFriendFragment"
+        android:name="com.arnoract.piggiplan.ui.create.EditFriendFragment"
+        android:label="EditFriendFragment"
+        tools:layout="@layout/fragment_edit_friend">
+
+        <argument
+            android:name="id"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_editFriendFragment_to_selectAddressFragment"
+            app:destination="@id/selectAddressFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectAddressFragment"
+        android:name="com.arnoract.piggiplan.ui.create.SelectAddressFragment"
+        android:label="SelectAddressFragment"
+        tools:layout="@layout/fragment_select_address" />
+
+    <fragment
+        android:id="@+id/selectRestaurantFragment"
+        android:name="com.arnoract.piggiplan.ui.restaurant.SelectRestaurantFragment"
+        android:label="SelectRestaurantFragment"
+        tools:layout="@layout/fragment_select_restaurant">
+
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchesNearbyFragment"
+        android:name="com.arnoract.piggiplan.ui.branch.BranchesNearbyFragment"
+        android:label="BranchesNearbyFragment"
+        tools:layout="@layout/fragment_branches_nearby">
+
+        <action
+            android:id="@+id/action_branchesNearbyFragment_to_branchesDetailFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_branchNearbyFragment_to_summaryFramgnet"
+            app:destination="@id/summaryFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchDetailFragment"
+        android:name="com.arnoract.piggiplan.ui.branch.BranchDetailFragment"
+        android:label="BranchesDetailFragment"
+        tools:layout="@layout/fragment_branch_detail">
+
+        <argument
+            android:name="branchId"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_branchesNearbyFragment_to_branchesNearbyFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.arnoract.piggiplan.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+
+        <action
+            android:id="@+id/action_favoriteFragment_to_branchesDetailFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.arnoract.piggiplan.ui.summary.SummaryFragment"
+        android:label="SummaryFragment"
+        tools:layout="@layout/fragment_summary">
+
+        <action
+            android:id="@+id/action_summaryFragment_to_branchesDetailFragment"
+            app:destination="@id/branchDetailFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
 
 </navigation>
