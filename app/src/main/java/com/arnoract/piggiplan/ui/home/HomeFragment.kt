@@ -62,6 +62,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home),
             val drawable = if (it) R.drawable.ic_edit else R.drawable.ic_plus
             binding.searchBranchNearbyActionButton.setImageResource(drawable)
         }
+        mViewModel.filterBranchNotFoundEvent.observe(viewLifecycleOwner) {
+            binding.BranchesViewFlipper.displayedChild = if (it) 1 else 0
+        }
     }
 
     private fun navigateToSearchBranchNearbyFragment(historyId: HistoryId = "") {

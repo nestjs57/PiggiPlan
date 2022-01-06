@@ -62,16 +62,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/branchRecyclerView"
+        <ViewFlipper
+            android:id="@+id/BranchesViewFlipper"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/space_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchBranchNameEditText"
-            tools:listitem="@layout/view_item_branch" />
+            app:layout_constraintTop_toBottomOf="@+id/searchBranchNameEditText">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/branchRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/space_normal"
+                tools:listitem="@layout/view_item_branch" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:gravity="center_horizontal"
+                android:text="@string/home_search_branch_not_found" />
+
+        </ViewFlipper>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/searchBranchNearbyActionButton"
