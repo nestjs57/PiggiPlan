@@ -50,6 +50,10 @@ class HomeViewModel(
 
     private val _branchNameQuery = MutableLiveData<String>()
 
+    private val _filterBranchNotFoundEvent = LiveEvent<Boolean>()
+    val filterBranchNotFoundEvent: LiveEvent<Boolean>
+        get() = _filterBranchNotFoundEvent
+
     private val _uiBranches = MediatorLiveData<List<UiBranch>>()
     val uiBranches: LiveData<List<UiBranch>>
         get() = _uiBranches
@@ -68,14 +72,16 @@ class HomeViewModel(
         _uiBranches.addSource(
             _branchNameQuery.debounce(
                 coroutineScope = viewModelScope,
-                duration = 500
+                duration = 300
             )
         ) {
-            _uiBranches.value = _branchesResult.value?.filter { branch ->
+            val branchesFiltered = _branchesResult.value?.filter { branch ->
                 branch.branchName.contains(it, true)
             }?.map { branch ->
                 BranchToUiBranchMapper.map(branch)
             }
+            _uiBranches.value = branchesFiltered ?: listOf()
+            _filterBranchNotFoundEvent.value = branchesFiltered.isNullOrEmpty()
         }
     }
 

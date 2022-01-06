@@ -42,6 +42,7 @@
     <string name="my_favorite_branch_saved_not_found">ไมีมีสาขาที่คุณบันทึกไว้</string>
 
     <string name="home_search_branch_hint">ค้นหาสาขา …</string>
+    <string name="home_search_branch_not_found">ไม่เจอผลลัพธ์</string>
 
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_back">ย้อนกลับ</string>
