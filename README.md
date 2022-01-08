@@ -4,7 +4,7 @@
 - MVVM
 - Koin
 - Room
-- SharedPreferance
+- Shared Preference
 - Coroutine
 - Navigation
 
