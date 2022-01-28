@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.branch.BranchesNearbyFragment">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/branchNearbyTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_large"
+        android:layout_marginTop="@dimen/space_large"
+        android:text="@string/branch_near_by_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_headline"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/summaryImageButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+
+    <ImageButton
+        android:id="@+id/summaryImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/space_large"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_pin"
+        app:layout_constraintBottom_toBottomOf="@+id/branchNearbyTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/branchNearbyTitleTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/branchesRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/branchNearbyTitleTextView"
+        tools:listitem="@layout/view_item_branch_near_by" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

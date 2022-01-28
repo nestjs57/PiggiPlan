@@ -12,7 +12,7 @@ class RetrofitBuilder(
     fun build(): Retrofit {
         return Retrofit.Builder()
             .client(client)
-            .baseUrl("https://scanji.xyz/")
+            .baseUrl("https://firebasestorage.googleapis.com/v0/b/piggiplan.appspot.com/o/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
